@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Expense Prediction{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Use Case 1: Expense Prediction</h1>
+
+    <p class="text-box">
+        This use case predicts future expenses based on historical financial data.
+    </p>
+
+    <h3>Machine Learning Type</h3>
+    <p>Supervised Learning - Regression</p>
+
+    <h3>Input Data</h3>
+    <ul>
+        <li>User income</li>
+        <li>Previous expenses</li>
+    </ul>
+
+    <h3>Expected Output</h3>
+    <p>Predicted monthly expense</p>
+
+    <h3>Real-world Relevance</h3>
+    <p>Helps users plan their finances and avoid overspending.</p>
+
+    <div class="image-box">
+        <img src="{{ url_for('static', filename='images/spongebob_money.png') }}" width="300">
+    </div>
+
+    <br>
+    <a href="/use-cases/" class="btn-green">Back</a>
+
+</div>
+
+{% endblock %}
