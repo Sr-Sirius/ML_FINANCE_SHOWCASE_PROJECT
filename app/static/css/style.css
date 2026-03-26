@@ -1,0 +1,140 @@
+/* ---------------------------------------------------
+   PAGE BACKGROUND AND GENERAL LAYOUT
+   Sets the background image, font, and centers the
+   content while still allowing the page to scroll.
+--------------------------------------------------- */
+
+body{
+
+background-image: url("../images/background.png");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+
+font-family: Arial, sans-serif;
+
+margin:0;
+
+/* Allow page to grow vertically */
+min-height:100vh;
+
+/* Center content horizontally */
+display:flex;
+justify-content:center;
+
+/* Start content from the top instead of cutting it */
+align-items:flex-start;
+
+padding:60px 0;
+
+}
+
+
+/* ---------------------------------------------------
+   MAIN CONTENT CONTAINER
+   Controls the width of the content and keeps it
+   centered on the page.
+--------------------------------------------------- */
+
+.container{
+
+width:800px;
+
+}
+
+
+/* ---------------------------------------------------
+   GLASS STYLE CARD
+   Used to display information sections with a
+   translucent "glass" effect and soft shadow.
+--------------------------------------------------- */
+
+.card{
+
+background: rgba(255,255,255,0.15);
+backdrop-filter: blur(10px);
+
+border-radius:15px;
+
+padding:40px;
+
+color:white;
+
+box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+text-align:center;
+
+/* Adds spacing between cards */
+margin-bottom:40px;
+
+}
+
+
+/* ---------------------------------------------------
+   GREEN ACTION BUTTONS
+   Styled buttons used for navigation and actions
+   with a green gradient and hover animation.
+--------------------------------------------------- */
+
+.btn-green{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:12px 25px;
+
+background: linear-gradient(135deg,#2ecc71,#27ae60);
+
+border-radius:8px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:0.3s;
+
+}
+
+.btn-green:hover{
+
+transform:scale(1.05);
+
+background: linear-gradient(135deg,#27ae60,#1e8449);
+
+}
+
+
+/* ---------------------------------------------------
+   IMAGE CONTAINER
+   Adds spacing around images displayed in the cards.
+--------------------------------------------------- */
+
+.image-box{
+
+margin-top:25px;
+
+}
+
+
+/* ---------------------------------------------------
+   TEXT CAPTION BOX
+   Creates a dark translucent background behind text
+   to improve readability over bright backgrounds.
+--------------------------------------------------- */
+
+.text-box{
+
+background: rgba(0,0,0,0.45);
+
+padding:10px 15px;
+
+border-radius:8px;
+
+display:inline-block;
+
+color:#eaffea;
+
+}
