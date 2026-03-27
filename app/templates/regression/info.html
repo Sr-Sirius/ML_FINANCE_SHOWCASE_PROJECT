@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card">
+        <h2>Linear Regression — Basic Concepts</h2>
+
+        <div class="text-box">
+            <p>
+                Linear Regression is a supervised machine learning algorithm used to predict a continuous value
+                based on one or more input variables. It works by finding the best linear relationship between
+                the independent variables (inputs) and the dependent variable (output).
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Independent and Dependent Variables</h3>
+
+        <div class="text-box">
+            <p>
+                Independent variables (X) are the inputs used to make predictions. In this project, these include
+                Income, Previous Expenses, and Number of Transactions. The dependent variable (Y) is the value we
+                want to predict, which is the Expense.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Training Data</h3>
+
+        <div class="text-box">
+            <p>
+                Training data is a set of historical records used by the model to learn patterns. In this case,
+                the dataset contains financial information such as income and past expenses, allowing the model
+                to understand how these variables influence spending behavior.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Regression Line</h3>
+
+        <div class="text-box">
+            <p>
+                The regression line represents the best possible fit through the data points. It is calculated
+                in a way that minimizes the difference between predicted and actual values. This line is used
+                to estimate future outcomes based on input data.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Slope and Intercept</h3>
+
+        <div class="text-box">
+            <p>
+                The slope determines how much the dependent variable changes when an independent variable changes.
+                The intercept is the value of the dependent variable when all inputs are zero. Together, they form
+                the mathematical equation of the regression model.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Example of Application</h3>
+
+        <div class="text-box">
+            <p>
+                In this project, linear regression is used to predict a person's monthly expenses based on their
+                income, previous expenses, and transaction activity. This can help in financial planning and
+                decision-making by estimating future spending patterns.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Model Visualization</h3>
+
+        <div class="text-box">
+            <p>
+                The following graph shows the relationship between income and expenses,
+                along with the regression line learned by the model.
+            </p>
+        </div>
+
+        <div class="image-box">
+            <img src="data:image/png;base64,{{ plot }}" alt="Regression Graph">
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
