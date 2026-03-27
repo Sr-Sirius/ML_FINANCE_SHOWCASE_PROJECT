@@ -1,3 +1,58 @@
-<h1>Use Case 3: Spending Classification</h1>
-<p class="text-box">Classify expenses as essential or non-essential.</p>
-<p><b>Type:</b> Classification</p>
+{% extends "base.html" %}
+
+{% block title %}Spending Classification{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Use Case 3: Spending Classification</h1>
+
+    <div class="text-box">
+
+        <p>
+            Spending classification helps users understand how their money is being used by categorizing expenses
+            into meaningful groups such as essential and non-essential.
+        </p>
+
+        <h3>Machine Learning Type</h3>
+        <p>Supervised Learning - Classification</p>
+
+        <h3>Input Data</h3>
+        <ul>
+            <li>Transaction description</li>
+            <li>Merchant name</li>
+            <li>Amount spent</li>
+            <li>Category labels (training data)</li>
+        </ul>
+
+        <h3>Expected Output</h3>
+        <p>
+            The model assigns a category to each expense, such as "Essential" or "Non-essential".
+        </p>
+
+        <h3>How it Works</h3>
+        <p>
+            The model is trained with labeled financial data where each transaction is associated with a category.
+            It learns patterns based on the type of purchase, frequency, and spending behavior.
+            When a new transaction is recorded, the model predicts its category automatically.
+        </p>
+
+        <h3>Real-world Importance</h3>
+        <p>
+            This allows users to track their financial habits, identify unnecessary expenses,
+            and make informed decisions to improve their financial stability.
+        </p>
+
+    </div>
+
+    <div class="image-box">
+        <img src="{{ url_for('static', filename='images/spending_classification.png') }}" width="300">
+    </div>
+
+    <br>
+    <a href="/use-cases/" class="btn-green">Back</a>
+
+</div>
+
+{% endblock %}

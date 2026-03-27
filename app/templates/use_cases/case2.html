@@ -1,4 +1,58 @@
-<h1>Use Case 2: Fraud Detection</h1>
-<p class="text-box">Detect suspicious transactions using ML.</p>
-<p><b>Type:</b> Classification</p>
-<p><b>Output:</b> Fraud / Not Fraud</p>
+{% extends "base.html" %}
+
+{% block title %}Fraud Detection{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Use Case 2: Fraud Detection</h1>
+
+    <div class="text-box">
+
+        <p>
+            Fraud detection is one of the most important applications of Machine Learning in the financial industry.
+            This system analyzes transaction patterns to identify unusual or suspicious behavior that could indicate fraud.
+        </p>
+
+        <h3>Machine Learning Type</h3>
+        <p>Supervised Learning - Classification</p>
+
+        <h3>Input Data</h3>
+        <ul>
+            <li>Transaction amount</li>
+            <li>Location of transaction</li>
+            <li>Time of transaction</li>
+            <li>User transaction history</li>
+        </ul>
+
+        <h3>Expected Output</h3>
+        <p>
+            The model classifies transactions as either "Fraudulent" or "Legitimate".
+        </p>
+
+        <h3>How it Works</h3>
+        <p>
+            The model is trained using historical transaction data where each operation is labeled as fraud or not.
+            It learns patterns such as unusual spending locations, abnormal transaction amounts, or unexpected behavior.
+            When a new transaction occurs, the model compares it with learned patterns and determines the probability of fraud.
+        </p>
+
+        <h3>Real-world Importance</h3>
+        <p>
+            This system is widely used in banking and financial platforms to protect users from unauthorized transactions,
+            reduce financial losses, and increase trust in digital payment systems.
+        </p>
+
+    </div>
+
+    <div class="image-box">
+        <img src="{{ url_for('static', filename='images/fraud_detection.png') }}" width="300">
+    </div>
+
+    <br>
+    <a href="/use-cases/" class="btn-green">Back</a>
+
+</div>
+
+{% endblock %}

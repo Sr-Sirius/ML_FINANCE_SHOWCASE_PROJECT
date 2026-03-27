@@ -1,3 +1,58 @@
-<h1>Use Case 4: Budget Recommendation</h1>
-<p class="text-box">Suggest spending limits based on user behavior.</p>
-<p><b>Type:</b> Regression / Recommendation</p>
+{% extends "base.html" %}
+
+{% block title %}Budget Recommendation{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Use Case 4: Budget Recommendation</h1>
+
+    <div class="text-box">
+
+        <p>
+            Budget recommendation systems use Machine Learning to suggest optimal spending limits
+            based on a user's financial behavior and goals.
+        </p>
+
+        <h3>Machine Learning Type</h3>
+        <p>Regression / Recommendation System</p>
+
+        <h3>Input Data</h3>
+        <ul>
+            <li>User income</li>
+            <li>Historical expenses</li>
+            <li>Savings goals</li>
+            <li>Spending patterns</li>
+        </ul>
+
+        <h3>Expected Output</h3>
+        <p>
+            Personalized recommendations for how much a user should spend in different categories.
+        </p>
+
+        <h3>How it Works</h3>
+        <p>
+            The model analyzes past financial data and identifies patterns in spending behavior.
+            Using regression techniques, it estimates optimal budget allocations and predicts
+            future financial scenarios based on current habits.
+        </p>
+
+        <h3>Real-world Importance</h3>
+        <p>
+            This helps users achieve financial goals, avoid overspending, and maintain better control
+            over their personal finances through intelligent recommendations.
+        </p>
+
+    </div>
+
+    <div class="image-box">
+        <img src="{{ url_for('static', filename='images/budget_recommendation.png') }}" width="300">
+    </div>
+
+    <br>
+    <a href="/use-cases/" class="btn-green">Back</a>
+
+</div>
+
+{% endblock %}

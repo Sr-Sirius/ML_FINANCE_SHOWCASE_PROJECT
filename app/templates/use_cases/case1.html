@@ -8,27 +8,49 @@
 
     <h1>Use Case 1: Expense Prediction</h1>
 
-    <p class="text-box">
-        This use case predicts future expenses based on historical financial data.
-    </p>
+    <div class="text-box">
 
-    <h3>Machine Learning Type</h3>
-    <p>Supervised Learning - Regression</p>
+        <p>
+            Expense prediction is a fundamental application of Machine Learning in personal finance.
+            This system estimates future expenses based on historical financial data, allowing users
+            to better understand their spending behavior and plan their budgets more effectively.
+        </p>
 
-    <h3>Input Data</h3>
-    <ul>
-        <li>User income</li>
-        <li>Previous expenses</li>
-    </ul>
+        <h3>Machine Learning Type</h3>
+        <p>Supervised Learning - Linear Regression</p>
 
-    <h3>Expected Output</h3>
-    <p>Predicted monthly expense</p>
+        <h3>Input Data</h3>
+        <ul>
+            <li>Monthly income</li>
+            <li>Previous expenses</li>
+            <li>Spending habits</li>
+            <li>Number of transactions</li>
+        </ul>
 
-    <h3>Real-world Relevance</h3>
-    <p>Helps users plan their finances and avoid overspending.</p>
+        <h3>Expected Output</h3>
+        <p>
+            A numerical prediction representing the estimated future monthly expenses of the user.
+        </p>
+
+        <h3>How it Works</h3>
+        <p>
+            The model is trained using historical financial data where both inputs (such as income and past expenses)
+            and outputs (actual expenses) are known. Using linear regression, the model learns the relationship between
+            these variables and identifies patterns in spending behavior.
+            Once trained, the model can take new input data and generate a prediction by applying the learned mathematical relationship.
+        </p>
+
+        <h3>Real-world Importance</h3>
+        <p>
+            This type of system is widely used in financial applications to help users forecast their expenses,
+            avoid overspending, and make informed financial decisions. It is especially useful for budgeting,
+            savings planning, and long-term financial stability.
+        </p>
+
+    </div>
 
     <div class="image-box">
-        <img src="{{ url_for('static', filename='images/spongebob_money.png') }}" width="300">
+        <img src="{{ url_for('static', filename='images/expense_prediction.png') }}" width="300">
     </div>
 
     <br>
