@@ -51,10 +51,27 @@
     </div>
 </div>
 
+<!-- REGRESSION GRAPH -->
+<div class="card">
+    <h3>Regression Graph</h3>
+
+    <div class="text-box">
+        <p>
+            The following graph shows the relationship between income and expenses,
+            along with the regression line learned by the model.
+        </p>
+    </div>
+
+    <div class="image-box">
+        <img src="data:image/png;base64,{{ plot }}" alt="Regression Graph">
+    </div>
+</div>
+
+<!-- FORM -->
 <div class="card">
     <h3>Make a Prediction</h3>
 
-    <form method="POST" action="/regression/predict">
+    <form method="POST" action="{{ url_for('regression.predict') }}">
 
         <input type="number" name="income" placeholder="Income" required>
         <input type="number" name="previous_expenses" placeholder="Previous Expenses" required>
@@ -83,12 +100,20 @@
     </div>
     {% endif %}
 
-    <!-- EXPLANATION -->
+    <!-- INTERPRETATION -->
     <div class="text-box" style="margin-top:20px;">
         <p>
-            This prediction represents an estimated expense based on patterns learned from historical financial data.
-            The model analyzes the relationship between income, previous expenses, and number of transactions to generate this result.
-            Results are more reliable when the input data follows realistic financial behavior.
+            The predicted value represents an estimation of the user's expenses based on learned patterns.
+            A higher income generally leads to higher expenses, while previous expenses strongly influence the result.
+            This demonstrates how past financial behavior affects future predictions.
+        </p>
+    </div>
+
+    <!-- FLASK EXPLANATION -->
+    <div class="text-box" style="margin-top:20px;">
+        <p>
+            This prediction system is implemented using Flask. User inputs are sent through a form,
+            processed by a machine learning model in the backend, and dynamically displayed on the webpage.
         </p>
     </div>
 

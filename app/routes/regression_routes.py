@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, request
-from app.models.linear_regression_model import predict_expense
+from app.models.linear_regression_model import predict_expense, generate_plot
 
 regression_bp = Blueprint('regression', __name__)
 
 @regression_bp.route('/')
 def regression_home():
-    return render_template('regression/info.html')
+    plot = generate_plot()
+    return render_template('regression/info.html', plot=plot)
 
 
 @regression_bp.route('/predict', methods=['GET', 'POST'])
@@ -13,6 +14,7 @@ def predict():
 
     prediction = None
     warning = None
+    plot = generate_plot()
 
     if request.method == 'POST':
         income = float(request.form['income'])
@@ -28,5 +30,6 @@ def predict():
     return render_template(
         'regression/predict.html',
         prediction=prediction,
-        warning=warning
+        warning=warning,
+        plot=plot
     )
