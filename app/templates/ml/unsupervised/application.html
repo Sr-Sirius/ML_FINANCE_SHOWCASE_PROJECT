@@ -1,13 +1,139 @@
 {% extends "base.html" %}
 
+{% block title %}K-Means Clustering Application{% endblock %}
+
 {% block content %}
+
 <div class="container">
 
-    <h2>K-Means Clustering Application</h2>
+    <!-- TITLE -->
+    <div class="card">
+        <h1>K-Means Clustering Application</h1>
+        <p class="subtitle">
+            Implementation of unsupervised learning using the K-Means algorithm.
+        </p>
+    </div>
 
-    <p>This module will implement K-Means using Scikit-learn.</p>
+    <!-- CONTEXT -->
+    <div class="card">
+        <h2>Context of the Data</h2>
+        <div class="text-box">
+            <p>
+                This dataset represents gym activity, where each record corresponds
+                to a user session. The goal is to group individuals based on their
+                training behavior.
+            </p>
+        </div>
+    </div>
 
-    <p>Coming next step...</p>
+    <!-- DATASET -->
+    <div class="card">
+        <h2>Dataset Explanation</h2>
+        <div class="text-box">
+            <ul>
+                <li>Number of records: 2000</li>
+                <li>Feature 1: Training Hours per Week (X)</li>
+                <li>Feature 2: Calories Burned per Session (Y)</li>
+                <li>Source: Generated synthetic dataset (CSV file)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PREPROCESSING -->
+    <div class="card">
+        <h2>Data Preprocessing</h2>
+        <div class="text-box">
+            <p>
+                The data was standardized using <b>StandardScaler</b> to normalize
+                the feature ranges before applying the K-Means algorithm.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODEL -->
+    <div class="card">
+        <h2>Model Training</h2>
+        <div class="text-box">
+            <p>
+                The K-Means algorithm was applied with <b>K = 3 clusters</b>.
+                The model iteratively assigns points and updates centroids
+                until convergence is reached.
+            </p>
+        </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="card">
+        <h2>Cluster Summary</h2>
+        <div class="text-box">
+            <ul>
+                {% for k, v in summary.items() %}
+                    <li>Cluster {{ k }}: {{ v }} records</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- CENTROIDS -->
+    <div class="card">
+        <h2>Centroids</h2>
+        <div class="text-box">
+            <ul>
+                {% for c in centers %}
+                    <li>Hours: {{ c[0] | round(2) }}, Kcal: {{ c[1] | round(2) }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- GRAPH -->
+    <div class="card">
+        <h2>Visualization</h2>
+        <img src="data:image/png;base64,{{ plot }}" width="100%">
+    </div>
+
+    <!-- TABLE -->
+    <div class="card">
+        <h2>Cluster Assignment (Sample Data)</h2>
+        <div class="text-box">
+            <table style="width:100%; color:white; border-collapse: collapse;">
+                <tr>
+                    <th>Hours</th>
+                    <th>Kcal</th>
+                    <th>Cluster</th>
+                </tr>
+
+                {% for row in data %}
+                <tr>
+                    <td>{{ row.hours | round(2) }}</td>
+                    <td>{{ row.kcal | round(2) }}</td>
+                    <td>{{ row.cluster }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <!-- INTERPRETATION -->
+    <div class="card">
+        <h2>Interpretation of Results</h2>
+        <div class="text-box">
+            <p>
+                The model successfully grouped the data into three clusters
+                representing different levels of physical activity.
+            </p>
+            <p>
+                Cluster 0 corresponds to low activity, Cluster 1 to medium,
+                and Cluster 2 to high activity levels.
+            </p>
+            <p>
+                The centroids represent the average behavior of each group,
+                confirming that the algorithm identified meaningful patterns
+                in the dataset.
+            </p>
+        </div>
+    </div>
 
 </div>
+
 {% endblock %}

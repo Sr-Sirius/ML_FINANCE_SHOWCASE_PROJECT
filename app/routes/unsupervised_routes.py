@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from app.models.unsupervised.kmeans_model import clustering_pipeline
 
 unsupervised_bp = Blueprint(
     "unsupervised",
@@ -38,9 +39,17 @@ def manual_kmeans():
 # =========================
 # CLUSTERING APPLICATION
 # =========================
+
 @unsupervised_bp.route("/application")
 def clustering_app():
+
+    result = clustering_pipeline()
+
     return render_template(
         "ml/unsupervised/application.html",
+        data=result["data"],
+        centers=result["centers"],
+        summary=result["summary"],
+        plot=result["plot"],
         theme="ml"
     )
