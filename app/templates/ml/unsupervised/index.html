@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Unsupervised Machine Learning{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card">
+        <h1>Unsupervised Machine Learning</h1>
+
+        <p class="subtitle">
+            Explore clustering techniques and pattern discovery without labeled data.
+        </p>
+    </div>
+
+    <!-- BASIC CONCEPTS -->
+    <div class="card">
+        <h2>Basic Concepts</h2>
+
+        <div class="home-buttons">
+            <a href="/unsupervised/concepts" class="btn">View Concepts</a>
+        </div>
+    </div>
+
+    <!-- MANUAL K-MEANS -->
+    <div class="card">
+        <h2>K-Means Manual Exercise</h2>
+
+        <div class="home-buttons">
+            <a href="/unsupervised/manual" class="btn">View Exercise</a>
+        </div>
+    </div>
+
+    <!-- APPLICATION -->
+    <div class="card">
+        <h2>Clustering Application</h2>
+
+        <div class="home-buttons">
+            <a href="/unsupervised/application" class="btn">Run Model</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
