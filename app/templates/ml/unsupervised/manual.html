@@ -1,29 +1,131 @@
 {% extends "base.html" %}
 
+{% block title %}K-Means Manual Exercise{% endblock %}
+
 {% block content %}
+
 <div class="container">
 
-    <h2>K-Means Manual Exercise</h2>
+    <!-- TITLE -->
+    <div class="card">
+        <h1>K-Means Manual Simulation</h1>
+        <p class="subtitle">
+            Step-by-step manual implementation of the K-Means clustering algorithm.
+        </p>
+    </div>
 
-    <p>This section shows the manual implementation of K-Means.</p>
+    <!-- DATASET -->
+    <div class="card">
+        <h2>Dataset Explanation</h2>
+        <div class="text-box">
+            <p>
+                The dataset consists of 100 records with two numerical features:
+                <b>Training Hours (X)</b> and <b>Calories Burned (Y)</b>.
+            </p>
+            <p>
+                The data is distributed into three natural groups representing
+                low, medium, and high activity levels.
+            </p>
+        </div>
+    </div>
 
-    <h3>Dataset</h3>
-    <p>100 records with Hours (X) and Calories (Y)</p>
+    <!-- ITERATIONS -->
+    <div class="card">
+        <h2>Iterations Process</h2>
+        <div class="text-box">
+            <ul>
+                <li>3 iterations were performed</li>
+                <li>Initial centroids were selected manually</li>
+                <li>Euclidean distance was calculated for each data point</li>
+                <li>Clusters were assigned based on minimum distance</li>
+                <li>Centroids were updated using the mean of each cluster</li>
+            </ul>
+        </div>
+    </div>
 
-    <h3>Process</h3>
-    <ul>
-        <li>3 iterations</li>
-        <li>Distance calculation</li>
-        <li>Cluster assignment</li>
-        <li>Centroid update</li>
-        <li>Variance (SSE)</li>
-    </ul>
+    <!-- DISTANCE -->
+    <div class="card">
+        <h2>Distance Calculation</h2>
+        <div class="text-box">
+            <p>
+                The Euclidean distance formula was used:
+            </p>
+            <p>
+                d = √((xₚ - x𝑐)² + (yₚ - y𝑐)²)
+            </p>
+            <p>
+                Distances were calculated between each point and the three centroids.
+            </p>
+        </div>
+    </div>
 
-    <h3>Results</h3>
-    <p>Final clusters were clearly separated into 3 groups.</p>
+    <!-- CLUSTERS -->
+    <div class="card">
+        <h2>Cluster Assignment</h2>
+        <div class="text-box">
+            <p>
+                Each data point was assigned to the nearest centroid using
+                the minimum distance.
+            </p>
+            <p>
+                The assignment was automated in Excel using comparison functions.
+            </p>
+        </div>
+    </div>
 
-    <h3>Conclusion</h3>
-    <p>The algorithm converged after iteration 2.</p>
+    <!-- CENTROIDS -->
+    <div class="card">
+        <h2>Centroid Updates</h2>
+        <div class="text-box">
+            <p>
+                New centroids were calculated as the average of all points
+                within each cluster.
+            </p>
+            <p>
+                After the first iteration, centroids adjusted significantly,
+                and in later iterations they stabilized.
+            </p>
+        </div>
+    </div>
+
+    <!-- VARIANCE -->
+    <div class="card">
+        <h2>Variance (SSE) Comparison</h2>
+        <div class="text-box">
+            <ul>
+                <li>Iteration 1 → SSE = 660,557</li>
+                <li>Iteration 2 → SSE = 307,280</li>
+                <li>Iteration 3 → SSE = 307,280</li>
+            </ul>
+            <p>
+                The SSE decreased significantly between iteration 1 and 2,
+                indicating improved clustering.
+            </p>
+        </div>
+    </div>
+
+    <!-- INTERPRETATION -->
+    <div class="card">
+        <h2>Interpretation of Results</h2>
+        <div class="text-box">
+            <p>
+                The K-Means algorithm successfully grouped the dataset into three clusters.
+            </p>
+            <p>
+                A significant reduction in SSE between the first and second iteration
+                shows that the model improved cluster compactness.
+            </p>
+            <p>
+                From iteration 2 onward, the SSE remained constant, indicating that
+                the algorithm reached convergence and the centroids stabilized.
+            </p>
+            <p>
+                The final clusters represent three distinct levels of activity:
+                low, medium, and high performance.
+            </p>
+        </div>
+    </div>
 
 </div>
+
 {% endblock %}
