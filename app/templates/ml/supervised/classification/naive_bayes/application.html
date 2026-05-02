@@ -14,8 +14,8 @@
     <div class="card">
         <h2>Problem Description</h2>
         <div class="text-box">
-            This application aims to classify the risk level of a driver based on observable driving behaviors. 
-            Instead of using continuous values, this model evaluates whether certain risky behaviors are present or absent, 
+            This application classifies the risk level of a driver based on observable driving behaviors. 
+            Instead of continuous values, the model evaluates whether risky behaviors are present (1) or absent (0), 
             such as overspeeding or phone usage while driving.
         </div>
 
@@ -28,9 +28,9 @@
     <div class="card">
         <h2>Dataset Explanation</h2>
         <div class="text-box">
-            The dataset is composed of binary variables representing driver behaviors. 
+            The dataset consists of binary variables representing driver behaviors. 
             Each feature indicates whether a risky action occurred (1) or not (0). 
-            The target variable represents whether the driver is classified as high risk or low risk.
+            The target variable defines whether the driver is classified as high risk or low risk.
         </div>
     </div>
 
@@ -45,22 +45,12 @@
         </div>
     </div>
 
-    <!-- DATA PREP -->
-    <div class="card">
-        <h2>Data Preparation</h2>
-        <div class="text-box">
-            The dataset is structured using binary encoding, where each feature represents the presence (1) or absence (0) of a behavior. 
-            The data is then split into training and testing sets to evaluate the model’s performance.
-        </div>
-    </div>
-
     <!-- TRAINING -->
     <div class="card">
         <h2>Model Training Process</h2>
         <div class="text-box">
-            A Bernoulli Naive Bayes model is trained using labeled data. 
-            The algorithm calculates the probability of each class given the observed features, 
-            assuming independence between them. It then selects the class with the highest probability.
+            The Bernoulli Naive Bayes model calculates the probability of each class given the observed features, 
+            assuming independence between them. It selects the class with the highest probability as the prediction.
         </div>
     </div>
 
@@ -80,7 +70,10 @@
         {% if prediction is not none %}
            <div class="text-box">
                 <strong>Prediction:</strong> {{ prediction }} <br>
-                <strong>Probability:</strong> {{ (probability * 100) | round(2) }}%
+
+                {% if probability is not none %}
+                    <strong>Probability:</strong> {{ (probability * 100) | round(2) }}%
+                {% endif %}
            </div>
         {% endif %}
     </div>
@@ -95,9 +88,6 @@
         {% if cm_plot %}
             <img src="data:image/png;base64,{{ cm_plot }}">
         {% endif %}
-        <p class="subtitle">
-            This visualization helps evaluate the model's classification performance.
-        </p>
     </div>
 
     <!-- METRICS -->
@@ -106,10 +96,10 @@
 
         <div class="text-box">
             <ul>
-                <li><strong>Accuracy:</strong> {{ accuracy * 100 }}%</li>
-                <li><strong>Precision:</strong> {{ precision * 100 }}%</li>
-                <li><strong>Recall:</strong> {{ recall * 100 }}%</li>
-                <li><strong>F1-score:</strong> {{ f1 * 100 }}%</li>
+                <li><strong>Accuracy:</strong> {{ (accuracy * 100) | round(2) }}%</li>
+                <li><strong>Precision:</strong> {{ (precision * 100) | round(2) }}%</li>
+                <li><strong>Recall:</strong> {{ (recall * 100) | round(2) }}%</li>
+                <li><strong>F1-score:</strong> {{ (f1 * 100) | round(2) }}%</li>
             </ul>
         </div>
     </div>
@@ -124,29 +114,30 @@
         {% if roc_plot %}
             <img src="data:image/png;base64,{{ roc_plot }}">
         {% endif %}
-        <p class="subtitle">
-            This visualization helps evaluate the model's classification performance.
-        </p>
     </div>
 
     <!-- INTERPRETATION -->
     <div class="card">
         <h2>Interpretation of Results</h2>
         <div class="text-box">  
-        <p>The Bernoulli Naive Bayes model demonstrates solid performance in classifying driver risk based on binary behavior indicators. The accuracy reflects the model’s ability to correctly classify both high-risk and low-risk drivers.</p>
+            <p>The Bernoulli Naive Bayes model demonstrates solid performance in classifying driver risk based on binary behavior indicators.</p>
 
-        <p>Precision indicates that when the model predicts a driver as high risk, it is usually correct. Recall shows that the model successfully identifies most of the actual high-risk drivers, which is critical in safety-related applications.</p>
+            <p>Precision indicates that when the model predicts a driver as high risk, it is usually correct. Recall shows that the model successfully identifies most of the actual high-risk drivers.</p>
 
-        <p>The confusion matrix reveals some classification errors, which is expected due to the simplicity of the model and the independence assumption. Despite this, the model provides reliable and interpretable predictions.</p>
+            <p>Some classification errors are expected due to the independence assumption, but overall the model remains reliable and interpretable.</p>
 
-        <p>The ROC curve and AUC value confirm that the model maintains a good balance between sensitivity and specificity, making it a strong baseline classifier for binary behavioral data.</p>
+            <p>The ROC curve confirms that the model maintains a good balance between sensitivity and specificity.</p>
         </div>
     </div>
 
-    <!-- BACK -->
+    <!-- BACK BUTTONS -->
     <div class="home-buttons">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+            ⬅ Back to Supervised
+        </a>
+
         <a href="{{ url_for('main.ml_menu') }}" class="btn">
-            ⬅ Back to ML Menu
+            ⬅ Back to ML
         </a>
     </div>
 

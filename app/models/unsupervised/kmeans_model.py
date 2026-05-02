@@ -7,24 +7,31 @@ import os
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
-
-DATA_PATH = "data/gym_data.csv"
+import matplotlib
+matplotlib.use('Agg')
 
 
 # =========================
-# LOAD DATA
+# LOAD DATA (MISMA LÓGICA QUE LOS DEMÁS)
 # =========================
 def load_data():
-    if not os.path.exists(DATA_PATH):
-        raise Exception("Dataset not found. Please generate gym_data.csv first.")
+    current_dir = os.path.dirname(__file__)
 
-    return pd.read_csv(DATA_PATH)
+    # Subir a raíz del proyecto
+    project_root = os.path.abspath(os.path.join(current_dir, "../../../"))
+
+    file_path = os.path.join(project_root, "data", "gym_data.csv")
+
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Dataset not found at: {file_path}")
+
+    return pd.read_csv(file_path)
 
 
 # =========================
 # TRAIN MODEL
 # =========================
-def train_kmeans():
+def train_model():
     df = load_data()
 
     scaler = StandardScaler()
@@ -33,6 +40,7 @@ def train_kmeans():
     model = KMeans(n_clusters=3, random_state=42, n_init=10)
     df["cluster"] = model.fit_predict(scaled)
 
+    # volver a escala original
     centers = scaler.inverse_transform(model.cluster_centers_)
 
     return df, centers
@@ -41,7 +49,7 @@ def train_kmeans():
 # =========================
 # PLOT
 # =========================
-def plot_clusters(df, centers):
+def generate_plot(df, centers):
     plt.figure()
 
     colors = ["blue", "green", "orange"]
@@ -85,10 +93,10 @@ def plot_clusters(df, centers):
 # PIPELINE (FLASK)
 # =========================
 def clustering_pipeline():
-    df, centers = train_kmeans()
+    df, centers = train_model()
 
     summary = df["cluster"].value_counts().to_dict()
-    plot = plot_clusters(df, centers)
+    plot = generate_plot(df, centers)
 
     return {
         "data": df.head(50).to_dict(orient="records"),

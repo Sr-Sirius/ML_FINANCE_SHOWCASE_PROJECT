@@ -19,7 +19,9 @@
         <h2>Basic Concepts</h2>
 
         <div class="home-buttons">
-            <a href="/unsupervised/concepts" class="btn">View Concepts</a>
+            <a href="{{ url_for('unsupervised.unsupervised_concepts') }}" class="btn">
+                View Concepts
+            </a>
         </div>
     </div>
 
@@ -28,7 +30,9 @@
         <h2>K-Means Manual Exercise</h2>
 
         <div class="home-buttons">
-            <a href="/unsupervised/manual" class="btn">View Exercise</a>
+            <a href="{{ url_for('unsupervised.unsupervised_manual') }}" class="btn">
+                View Exercise
+            </a>
         </div>
     </div>
 
@@ -37,8 +41,17 @@
         <h2>Clustering Application</h2>
 
         <div class="home-buttons">
-            <a href="/unsupervised/application" class="btn">Run Model</a>
+            <a href="{{ url_for('unsupervised.unsupervised_application') }}" class="btn">
+                Run Model
+            </a>
         </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="home-buttons">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
     </div>
 
 </div>

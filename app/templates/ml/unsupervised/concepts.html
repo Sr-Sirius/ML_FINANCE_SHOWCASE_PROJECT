@@ -8,7 +8,7 @@
 
     <!-- TITLE -->
     <div class="card">
-        <h1>Unsupervised Machine Learning</h1>
+        <h1>K-Means — Unsupervised Learning Concepts</h1>
         <p class="subtitle">
             Understanding how machines find patterns without labeled data.
         </p>
@@ -69,7 +69,7 @@
                 The distance between two points is calculated using:
             </p>
             <p>
-                d = √((x₁ - x₂)² + (y₁ - y₂)²)
+                d = √((x₁ - x₂)<sup>2</sup> + (y₁ - y₂)<sup>2</sup>)
             </p>
         </div>
     </div>
@@ -81,6 +81,18 @@
             <p>
                 K-Means works iteratively. Each iteration improves cluster
                 assignments until the centroids no longer change.
+            </p>
+        </div>
+    </div>
+
+    <!-- CONVERGENCE -->
+    <div class="card">
+        <h2>Convergence</h2>
+        <div class="text-box">
+            <p>
+                Convergence occurs when cluster assignments no longer change
+                or when the centroids stabilize between iterations. At this
+                point, the algorithm stops.
             </p>
         </div>
     </div>
@@ -108,6 +120,17 @@
                 <li>Anomaly detection</li>
             </ul>
         </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="home-buttons">
+        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">
+            ⬅ Back to Unsupervised
+        </a>
+
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
     </div>
 
 </div>

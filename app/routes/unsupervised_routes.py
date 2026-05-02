@@ -4,23 +4,25 @@ from app.models.unsupervised.kmeans_model import clustering_pipeline
 unsupervised_bp = Blueprint(
     "unsupervised",
     __name__,
-    url_prefix="/unsupervised"
+    url_prefix="/ml/unsupervised"
 )
 
 # =========================
-# MENU PRINCIPAL
+# MENU
 # =========================
 @unsupervised_bp.route("/")
+@unsupervised_bp.route("/menu")
 def unsupervised_menu():
     return render_template(
-        "ml/unsupervised/index.html",
+        "ml/unsupervised/menu.html",
         theme="ml"
     )
+
 # =========================
-# BASIC CONCEPTS
+# CONCEPTS
 # =========================
 @unsupervised_bp.route("/concepts")
-def concepts():
+def unsupervised_concepts():
     return render_template(
         "ml/unsupervised/concepts.html",
         theme="ml"
@@ -30,7 +32,7 @@ def concepts():
 # MANUAL EXERCISE
 # =========================
 @unsupervised_bp.route("/manual")
-def manual_kmeans():
+def unsupervised_manual():
     return render_template(
         "ml/unsupervised/manual.html",
         theme="ml"
@@ -39,17 +41,25 @@ def manual_kmeans():
 # =========================
 # CLUSTERING APPLICATION
 # =========================
-
 @unsupervised_bp.route("/application")
-def clustering_app():
+def unsupervised_application():
 
-    result = clustering_pipeline()
+    try:
+        result = clustering_pipeline()
 
-    return render_template(
-        "ml/unsupervised/application.html",
-        data=result["data"],
-        centers=result["centers"],
-        summary=result["summary"],
-        plot=result["plot"],
-        theme="ml"
-    )
+        return render_template(
+            "ml/unsupervised/application.html",
+            **result,
+            theme="ml"
+        )
+
+    except Exception as e:
+        return render_template(
+            "ml/unsupervised/application.html",
+            data=[],
+            centers=[],
+            summary={},
+            plot=None,
+            error=str(e),
+            theme="ml"
+        )

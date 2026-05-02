@@ -1,46 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}Supervised Machine Learning{% endblock %}
+{% block title %}Machine Learning{% endblock %}
 
 {% block content %}
 
 <div class="container">
 
     <div class="card">
-        <h1>Supervised Machine Learning</h1>
+        <h1>Machine Learning</h1>
 
         <p class="subtitle">
-            Explore regression and classification models, including their concepts and practical applications.
+            Explore supervised and unsupervised learning models, including their concepts and practical applications.
         </p>
     </div>
 
-    <!-- LINEAR REGRESSION -->
+    <!-- SUPERVISED -->
     <div class="card">
-        <h2>Linear Regression</h2>
+        <h2>Supervised Learning</h2>
 
         <div class="home-buttons">
-            <a href="/regression/" class="btn">Concepts</a>
-            <a href="/regression/predict" class="btn">Application</a>
+            <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">Go to Supervised</a>
         </div>
     </div>
 
-    <!-- LOGISTIC REGRESSION -->
+    <!-- UNSUPERVISED -->
     <div class="card">
-        <h2>Logistic Regression</h2>
+        <h2>Unsupervised Learning</h2>
 
         <div class="home-buttons">
-            <a href="/classification/logistic/concepts" class="btn">Concepts</a>
-            <a href="/classification/logistic/application" class="btn">Application</a>
-        </div>
-    </div>
-
-    <!-- NAIVE BAYES -->
-    <div class="card">
-        <h2>Naive Bayes</h2>
-
-        <div class="home-buttons">
-            <a href="/classification/naive-bayes/concepts" class="btn">Concepts</a>
-            <a href="/classification/naive-bayes/application" class="btn">Application</a>
+            <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">Go to Unsupervised</a>
         </div>
     </div>
 

@@ -101,7 +101,32 @@
             <img src="{{ url_for('static', filename='images/probability.png') }}" width="300">
         </div>
     </div>
+    
+<!-- SIGMOID -->
+<div class="card">
+    <h2>Sigmoid Function</h2>
+    <div class="text-box">
+        <p>
+            Logistic Regression uses the sigmoid (logistic) function to transform
+            linear outputs into probabilities between 0 and 1.
+        </p>
+        <p>
+            The sigmoid function is defined as:
+        </p>
+        <p>
+            σ(z) = 1 / (1 + e<sup>-z</sup>)
+        </p>
+        <p>
+            This function ensures that the model output can be interpreted
+            as a probability.
+        </p>
+    </div>
 
+    <div class="image-box">
+        <img src="{{ url_for('static', filename='images/sigmoid.png') }}" width="300">
+    </div>
+</div>
+    
     <!-- DECISION BOUNDARY -->
     <div class="card">
         <h2>Decision Boundary</h2>
@@ -123,7 +148,7 @@
             <p>The classification threshold is the value used to convert predicted probabilities into class labels.</p>
             <p>Typically, this threshold is set at 0.5:</p>
             <ul>
-                <li> If probability more or equalt to 0.5 → Class 1 </li>
+                <li> If probability more or equal to 0.5 → Class 1 </li>
                 <li> If probability less than 0.5 → Class 0 </li>
             </ul>
             <p>However, this threshold can be adjusted depending on the problem. For example, in fraud detection, a lower threshold may be used to reduce the risk of missing fraudulent transactions.</p>
@@ -156,11 +181,13 @@
 
     <!-- BACK BUTTON -->
     <div class="home-buttons">
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
-            ⬅ Back to ML Menu
-        </a>
-    </div>
+    <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        ⬅ Back to Supervised
+    </a>
 
+    <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        ⬅ Back to ML
+    </a>
 </div>
 
 {% endblock %}

@@ -27,19 +27,40 @@
                 low, medium, and high activity levels.
             </p>
         </div>
+
+        <!-- 📸 SCREENSHOT -->
+        <div class="image-box">
+            <p><b>Figure 1.</b> Initial dataset used for K-Means simulation.</p>
+            <img src="{{ url_for('static', filename='images/manual_dataset.png') }}" 
+                 style="max-width:100%; height:auto;">
+        </div>
     </div>
 
     <!-- ITERATIONS -->
     <div class="card">
-        <h2>Iterations Process</h2>
+        <h2>Iteration Tables</h2>
         <div class="text-box">
-            <ul>
-                <li>3 iterations were performed</li>
-                <li>Initial centroids were selected manually</li>
-                <li>Euclidean distance was calculated for each data point</li>
-                <li>Clusters were assigned based on minimum distance</li>
-                <li>Centroids were updated using the mean of each cluster</li>
-            </ul>
+            <p>
+                Three iterations of the K-Means algorithm were performed manually until convergence was reached.
+                Each iteration included distance calculation, cluster assignment,
+                and centroid updates.
+            </p>
+        </div>
+
+        <!-- 📸 -->
+        <div class="image-box">
+            <p><b>Figure 2.</b> Iteration 1 - Distance calculation and cluster assignment.</p>
+            <img src="{{ url_for('static', filename='images/iteration1.png') }}" width="400">
+        </div>
+
+        <div class="image-box">
+            <p><b>Figure 3.</b> Iteration 2 - Updated clusters and centroids.</p>
+            <img src="{{ url_for('static', filename='images/iteration2.png') }}" width="400">
+        </div>
+
+        <div class="image-box">
+            <p><b>Figure 4.</b> Iteration 3 - Final stable clusters.</p>
+            <img src="{{ url_for('static', filename='images/iteration3.png') }}" width="400">
         </div>
     </div>
 
@@ -51,10 +72,10 @@
                 The Euclidean distance formula was used:
             </p>
             <p>
-                d = √((xₚ - x𝑐)² + (yₚ - y𝑐)²)
+                d = √((xₚ - x𝑐)<sup>2</sup> + (yₚ - y𝑐)<sup>2</sup>)
             </p>
             <p>
-                Distances were calculated between each point and the three centroids.
+                Distances were calculated between each data point and each centroid.
             </p>
         </div>
     </div>
@@ -68,7 +89,7 @@
                 the minimum distance.
             </p>
             <p>
-                The assignment was automated in Excel using comparison functions.
+                This process was implemented in Excel using comparison formulas.
             </p>
         </div>
     </div>
@@ -78,12 +99,12 @@
         <h2>Centroid Updates</h2>
         <div class="text-box">
             <p>
-                New centroids were calculated as the average of all points
-                within each cluster.
+                New centroids were calculated as the mean of all points
+                belonging to each cluster.
             </p>
             <p>
-                After the first iteration, centroids adjusted significantly,
-                and in later iterations they stabilized.
+                After the first iteration, centroids changed significantly,
+                and then gradually stabilized.
             </p>
         </div>
     </div>
@@ -99,8 +120,14 @@
             </ul>
             <p>
                 The SSE decreased significantly between iteration 1 and 2,
-                indicating improved clustering.
+                indicating improved clustering quality.
             </p>
+        </div>
+
+        <!-- 📸 -->
+        <div class="image-box">
+            <p><b>Figure 5.</b> SSE comparison across iterations.</p>
+            <img src="{{ url_for('static', filename='images/sse_graph.png') }}" width="400">
         </div>
     </div>
 
@@ -112,18 +139,29 @@
                 The K-Means algorithm successfully grouped the dataset into three clusters.
             </p>
             <p>
-                A significant reduction in SSE between the first and second iteration
-                shows that the model improved cluster compactness.
+                The reduction in SSE demonstrates that the clusters became more compact
+                after each iteration.
             </p>
             <p>
-                From iteration 2 onward, the SSE remained constant, indicating that
-                the algorithm reached convergence and the centroids stabilized.
+                The algorithm reached convergence in the third iteration, where no further
+                changes in cluster assignments were observed.
             </p>
             <p>
-                The final clusters represent three distinct levels of activity:
+                The final clusters represent three levels of activity:
                 low, medium, and high performance.
             </p>
         </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="home-buttons">
+        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">
+            ⬅ Back to Unsupervised
+        </a>
+
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
     </div>
 
 </div>
