@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Unsupervised Learning Concepts{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- TITLE -->
+    <div class="card">
+        <h1>K-Means — Unsupervised Learning Concepts</h1>
+        <p class="subtitle">
+            Understanding how machines find patterns without labeled data.
+        </p>
+    </div>
+
+    <!-- WHAT IS UNSUPERVISED -->
+    <div class="card">
+        <h2>What is Unsupervised Learning?</h2>
+        <div class="text-box">
+            <p>
+                Unsupervised learning is a type of machine learning where the model
+                works with data that has no labeled outputs. The goal is to identify
+                patterns, structures, or relationships within the data.
+            </p>
+        </div>
+    </div>
+
+    <!-- CLUSTERING -->
+    <div class="card">
+        <h2>Clustering</h2>
+        <div class="text-box">
+            <p>
+                Clustering is the process of grouping similar data points together.
+                Each group is called a cluster.
+            </p>
+        </div>
+    </div>
+
+    <!-- K-MEANS -->
+    <div class="card">
+        <h2>K-Means Algorithm</h2>
+        <div class="text-box">
+            <ul>
+                <li>Select K initial centroids</li>
+                <li>Assign each point to the nearest centroid</li>
+                <li>Recalculate centroids (average)</li>
+                <li>Repeat until convergence</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CENTROIDS -->
+    <div class="card">
+        <h2>Centroids</h2>
+        <div class="text-box">
+            <p>
+                A centroid represents the center of a cluster and is calculated
+                as the average of all points belonging to that cluster.
+            </p>
+        </div>
+    </div>
+
+    <!-- DISTANCE -->
+    <div class="card">
+        <h2>Euclidean Distance</h2>
+        <div class="text-box">
+            <p>
+                The distance between two points is calculated using:
+            </p>
+            <p>
+                d = √((x₁ - x₂)<sup>2</sup> + (y₁ - y₂)<sup>2</sup>)
+            </p>
+        </div>
+    </div>
+
+    <!-- ITERATIVE PROCESS -->
+    <div class="card">
+        <h2>Iterative Process</h2>
+        <div class="text-box">
+            <p>
+                K-Means works iteratively. Each iteration improves cluster
+                assignments until the centroids no longer change.
+            </p>
+        </div>
+    </div>
+
+    <!-- CONVERGENCE -->
+    <div class="card">
+        <h2>Convergence</h2>
+        <div class="text-box">
+            <p>
+                Convergence occurs when cluster assignments no longer change
+                or when the centroids stabilize between iterations. At this
+                point, the algorithm stops.
+            </p>
+        </div>
+    </div>
+
+    <!-- VARIANCE -->
+    <div class="card">
+        <h2>Variance (SSE)</h2>
+        <div class="text-box">
+            <p>
+                SSE (Sum of Squared Errors) measures how close points are
+                to their centroid. Lower values indicate better clustering.
+            </p>
+        </div>
+    </div>
+
+    <!-- APPLICATIONS -->
+    <div class="card">
+        <h2>Real-World Applications</h2>
+        <div class="text-box">
+            <ul>
+                <li>Customer segmentation</li>
+                <li>Market analysis</li>
+                <li>Fraud detection</li>
+                <li>Image compression</li>
+                <li>Anomaly detection</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="home-buttons">
+        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">
+            ⬅ Back to Unsupervised
+        </a>
+
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

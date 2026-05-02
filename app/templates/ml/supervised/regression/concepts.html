@@ -1,35 +1,42 @@
 {% extends "base.html" %}
 
+{% block title %}Linear Regression - Concepts{% endblock %}
+
 {% block content %}
 
 <div class="container">
 
+    <!-- TITLE -->
     <div class="card">
-        <h2>Linear Regression — Basic Concepts</h2>
+        <h1>Linear Regression — Basic Concepts</h1>
 
         <div class="text-box">
             <p>
                 Linear Regression is a supervised machine learning algorithm used to predict a continuous value
-                based on one or more input variables. It works by finding the best linear relationship between
+                based on one or more input variables. It finds the best linear relationship between
                 the independent variables (inputs) and the dependent variable (output).
             </p>
         </div>
     </div>
 
+    <!-- VARIABLES -->
     <div class="card">
-        <h3>Independent and Dependent Variables</h3>
+        <h2>Independent and Dependent Variables</h2>
 
         <div class="text-box">
             <p>
                 Independent variables (X) are the inputs used to make predictions. In this project, these include
-                Income, Previous Expenses, and Number of Transactions. The dependent variable (Y) is the value we
-                want to predict, which is the Expense.
+                Income, Previous Expenses, and Number of Transactions.
+            </p>
+            <p>
+                The dependent variable (Y) is the value we want to predict, which is the Expense.
             </p>
         </div>
     </div>
 
+    <!-- TRAINING DATA -->
     <div class="card">
-        <h3>Training Data</h3>
+        <h2>Training Data</h2>
 
         <div class="text-box">
             <p>
@@ -40,44 +47,46 @@
         </div>
     </div>
 
+    <!-- REGRESSION LINE -->
     <div class="card">
-        <h3>Regression Line</h3>
+        <h2>Regression Line</h2>
 
         <div class="text-box">
             <p>
                 The regression line represents the best possible fit through the data points. It is calculated
-                in a way that minimizes the difference between predicted and actual values. This line is used
-                to estimate future outcomes based on input data.
+                to minimize the difference between predicted and actual values, allowing the model to estimate
+                future outcomes.
             </p>
         </div>
     </div>
 
+    <!-- SLOPE -->
     <div class="card">
-        <h3>Slope and Intercept</h3>
+        <h2>Slope and Intercept</h2>
 
         <div class="text-box">
             <p>
                 The slope determines how much the dependent variable changes when an independent variable changes.
-                The intercept is the value of the dependent variable when all inputs are zero. Together, they form
-                the mathematical equation of the regression model.
+                The intercept is the value of the dependent variable when all inputs are zero.
             </p>
         </div>
     </div>
 
+    <!-- APPLICATION -->
     <div class="card">
-        <h3>Example of Application</h3>
+        <h2>Example of Application</h2>
 
         <div class="text-box">
             <p>
-                In this project, linear regression is used to predict a person's monthly expenses based on their
-                income, previous expenses, and transaction activity. This can help in financial planning and
-                decision-making by estimating future spending patterns.
+                In this project, linear regression predicts a person's monthly expenses based on their income,
+                previous expenses, and transaction activity. This helps in financial planning and decision-making.
             </p>
         </div>
     </div>
 
+    <!-- VISUALIZATION -->
     <div class="card">
-        <h3>Model Visualization</h3>
+        <h2>Model Visualization</h2>
 
         <div class="text-box">
             <p>
@@ -86,9 +95,26 @@
             </p>
         </div>
 
+        {% if plot %}
         <div class="image-box">
             <img src="data:image/png;base64,{{ plot }}" alt="Regression Graph">
         </div>
+        {% else %}
+        <div class="text-box">
+            ⚠️ Visualization not available
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- BACK BUTTONS -->
+    <div class="home-buttons">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+            ⬅ Back to Supervised
+        </a>
+
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
     </div>
 
 </div>

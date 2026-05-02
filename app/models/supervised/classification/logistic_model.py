@@ -1,8 +1,17 @@
 import pandas as pd
 import os
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_curve, auc
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+    roc_curve,
+    auc
+)
 
 import matplotlib
 matplotlib.use('Agg')
@@ -12,11 +21,21 @@ import io
 import base64
 
 
+# =========================
+# PATH CONFIG (ROBUSTO)
+# =========================
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../.."))
+DATA_PATH = os.path.join(BASE_DIR, "app", "data")
+
+
+# =========================
+# LOAD DATA
+# =========================
 def load_data():
-    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    
-    # Go ONE MORE LEVEL UP to reach project root
-    project_root = os.path.dirname(base_dir)
+    current_dir = os.path.dirname(__file__)
+
+    # Subir hasta raíz del proyecto
+    project_root = os.path.abspath(os.path.join(current_dir, "../../../../"))
 
     file_path = os.path.join(project_root, "data", "car_risk_data.csv")
 
@@ -28,6 +47,9 @@ def load_data():
     return train_test_split(X, y, test_size=0.3, random_state=42)
 
 
+# =========================
+# TRAIN MODEL
+# =========================
 def train_model():
     X_train, X_test, y_train, y_test = load_data()
 
@@ -37,28 +59,42 @@ def train_model():
     return model, X_test, y_test
 
 
+# =========================
+# PREDICT
+# =========================
 def predict_risk(speed, trips, time):
     model, _, _ = train_model()
 
-    proba = model.predict_proba([[speed, trips, time]])[0][1]
-    prediction = model.predict([[speed, trips, time]])[0]
+    input_data = [[speed, trips, time]]
+
+    proba = model.predict_proba(input_data)[0][1]
+    prediction = model.predict(input_data)[0]
 
     label = "High Risk" if prediction == 1 else "Low Risk"
 
     return label, round(proba, 4)
 
+
+# =========================
+# EVALUATION
+# =========================
 def evaluate_model():
     model, X_test, y_test = train_model()
 
     y_pred = model.predict(X_test)
+    y_prob = model.predict_proba(X_test)[:, 1]
 
     accuracy = accuracy_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred)
-    recall = recall_score(y_test, y_pred)
-    f1 = f1_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred, zero_division=0)
+    recall = recall_score(y_test, y_pred, zero_division=0)
+    f1 = f1_score(y_test, y_pred, zero_division=0)
 
-    return accuracy, precision, recall, f1, y_test, y_pred
+    return accuracy, precision, recall, f1, y_test, y_pred, y_prob
 
+
+# =========================
+# CONFUSION MATRIX
+# =========================
 def plot_confusion_matrix(y_test, y_pred):
     import seaborn as sns
 
@@ -69,7 +105,7 @@ def plot_confusion_matrix(y_test, y_pred):
         ["False Neg\n(FN)", "True Pos\n(TP)"]
     ]
 
-    plt.figure(figsize=(6,5))
+    plt.figure(figsize=(6, 5))
 
     sns.heatmap(
         cm,
@@ -92,21 +128,24 @@ def plot_confusion_matrix(y_test, y_pred):
 
     return base64.b64encode(buf.getvalue()).decode()
 
+
+# =========================
+# ROC CURVE
+# =========================
 def plot_roc(y_test, y_prob):
     fpr, tpr, _ = roc_curve(y_test, y_prob)
     roc_auc = auc(fpr, tpr)
 
-    plt.figure(figsize=(6,5))
+    plt.figure(figsize=(6, 5))
 
     plt.plot(fpr, tpr, label=f"AUC = {roc_auc:.2f}", linewidth=2)
-    plt.plot([0,1], [0,1], linestyle='--')  # random baseline
+    plt.plot([0, 1], [0, 1], linestyle='--')
 
     plt.xlabel("False Positive Rate")
     plt.ylabel("True Positive Rate")
     plt.title("ROC Curve")
 
     plt.legend(loc="lower right")
-
     plt.grid(alpha=0.3)
 
     plt.tight_layout()

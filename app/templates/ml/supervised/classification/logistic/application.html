@@ -6,6 +6,7 @@
 
 <div class="container">
 
+    <!-- TITLE -->
     <div class="card">
         <h1>Logistic Regression - Application</h1>
     </div>
@@ -66,9 +67,14 @@
         <h2>Prediction Form</h2>
 
         <form method="POST">
-            <input type="number" step="any" name="speed" placeholder="Average Speed" required>
-            <input type="number" step="any" name="trips" placeholder="Number of Trips" required>
-            <input type="number" step="any" name="time" placeholder="Driving Time" required>
+            <label>Average Speed</label>
+            <input type="number" step="any" name="speed" required>
+
+            <label>Number of Trips</label>
+            <input type="number" step="any" name="trips" required>
+
+            <label>Driving Time</label>
+            <input type="number" step="any" name="time" required>
 
             <button type="submit" class="btn">Predict</button>
         </form>
@@ -89,11 +95,13 @@
         </div>
 
         {% if cm_plot %}
-            <img src="data:image/png;base64,{{ cm_plot }}">
+            <img src="data:image/png;base64,{{ cm_plot }}" width="100%">
+            <p class="subtitle">
+                <b>Figure 7.</b> Confusion matrix showing classification performance.
+            </p>
+        {% else %}
+            <p>No confusion matrix available.</p>
         {% endif %}
-        <p class="subtitle">
-            This visualization helps evaluate the model's classification performance.
-        </p>
     </div>
 
     <!-- METRICS -->
@@ -102,10 +110,10 @@
 
         <div class="text-box">
             <ul>
-                <li><strong>Accuracy:</strong> {{ accuracy * 100 }}%</li>
-                <li><strong>Precision:</strong> {{ precision * 100 }}%</li>
-                <li><strong>Recall:</strong> {{ recall * 100 }}%</li>
-                <li><strong>F1-score:</strong> {{ f1 * 100 }}%</li>
+                <li><strong>Accuracy:</strong> {{ (accuracy * 100) | round(2) }}%</li>
+                <li><strong>Precision:</strong> {{ (precision * 100) | round(2) }}%</li>
+                <li><strong>Recall:</strong> {{ (recall * 100) | round(2) }}%</li>
+                <li><strong>F1-score:</strong> {{ (f1 * 100) | round(2) }}%</li>
             </ul>
         </div>
     </div>
@@ -118,31 +126,56 @@
         </div>
 
         {% if roc_plot %}
-            <img src="data:image/png;base64,{{ roc_plot }}">
+            <img src="data:image/png;base64,{{ roc_plot }}" width="100%">
+            <p class="subtitle">
+                <b>Figure 8.</b> ROC curve representing model discrimination capability.
+            </p>
+        {% else %}
+            <p>No ROC curve available.</p>
         {% endif %}
-        <p class="subtitle">
-            This visualization helps evaluate the model's classification performance.
-        </p>
     </div>
 
     <!-- INTERPRETATION -->
     <div class="card">
         <h2>Interpretation of Results</h2>
         <div class="text-box">  
-        <p>The model demonstrates strong performance in identifying high-risk drivers, achieving an accuracy of approximately 86%. The high recall (94%) indicates that most risky drivers are correctly detected, which is critical in safety-related applications where missing a high-risk case can have serious consequences.</p>
+            <p>
+                The model demonstrates strong performance in identifying high-risk drivers, achieving an accuracy of approximately 86%. 
+                The high recall (94%) indicates that most risky drivers are correctly detected, which is critical in safety-related applications 
+                where missing a high-risk case can have serious consequences.
+            </p>
 
-        <p>The precision (89%) shows that the majority of drivers classified as high risk are indeed risky, although some false positives still occur. This reflects a reasonable trade-off between sensitivity and specificity.</p>
+            <p>
+                The precision (89%) shows that the majority of drivers classified as high risk are indeed risky, although some false positives still occur. 
+                This reflects a reasonable trade-off between sensitivity and specificity.
+            </p>
 
-        <p>The confusion matrix reveals that the model makes a small number of classification errors, which is expected in real-world scenarios where data is not perfectly separable. Additionally, the ROC curve with an AUC of 0.92 confirms that the model has a strong ability to distinguish between low-risk and high-risk drivers across different classification thresholds.</p>
+            <p>
+                The confusion matrix reveals that the model makes a small number of classification errors, which is expected in real-world scenarios 
+                where data is not perfectly separable. Additionally, the ROC curve with an AUC of 0.92 confirms that the model has a strong ability 
+                to distinguish between low-risk and high-risk drivers across different classification thresholds.
+            </p>
 
-        <p>Overall, the model provides reliable predictions and behaves realistically, making it suitable as a demonstration of logistic regression applied to driver risk assessment.</p>
+            <p>
+                Overall, the model provides reliable predictions and behaves realistically, making it suitable as a demonstration of logistic regression 
+                applied to driver risk assessment.
+            </p>
+
+            <p>
+                These results demonstrate that Logistic Regression is an effective and interpretable model for binary classification problems 
+                in real-world scenarios.
+            </p>
         </div>
     </div>
 
-    <!-- BACK -->
+    <!-- NAVIGATION -->
     <div class="home-buttons">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+            ⬅ Back to Supervised
+        </a>
+
         <a href="{{ url_for('main.ml_menu') }}" class="btn">
-            ⬅ Back to ML Menu
+            ⬅ Back to ML
         </a>
     </div>
 

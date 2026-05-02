@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}ML Finance App{% endblock %}</title>
+    <title>{% block title %}ML Suite{% endblock %}</title>
 
     <!-- ICON -->
     <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
@@ -13,21 +13,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="{{ theme }}"></body>
+<body class="{{ theme }}">
 
 <div class="container">
 
     <!-- NAVIGATION -->
     <nav class="navbar">
-    <div class="nav-container">
-        <h2 class="logo">ML Suite</h2>
+        <div class="nav-container">
+            <h2 class="logo">ML Suite</h2>
 
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/use-cases">Use Cases</a></li>
-            <li><a href="/ml">Supervised ML</a></li>
-        </ul>
-    </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                <li><a href="{{ url_for('use_cases.menu') }}">Use Cases</a></li>
+                <li><a href="{{ url_for('main.ml_menu') }}">Machine Learning</a></li>
+            </ul>
+        </div>
     </nav>
 
     {% block content %}{% endblock %}

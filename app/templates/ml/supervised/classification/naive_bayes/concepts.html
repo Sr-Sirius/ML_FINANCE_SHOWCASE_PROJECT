@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Naive Bayes - Concepts{% endblock %}
+{% block title %}Bernoulli Naive Bayes{% endblock %}
 
 {% block content %}
 
@@ -30,11 +30,33 @@
         <div class="text-box">
             <p>The model applies Bayes' Theorem to calculate the probability of each class given the observed features.</p>
             <p>It multiplies the probabilities of each feature assuming independence between them. For Bernoulli Naive Bayes, each feature contributes based on whether it is present (1) or absent (0).</p>
-            <p>The class with the highest probability is selected as the final prediction.</p>
+            <p>The model selects the class with the highest posterior probability as the final prediction.</p>
         </div>
 
         <div class="image-box">
             <img src="{{ url_for('static', filename='images/bayes_formula.png') }}" width="300">
+        </div>
+    </div>
+
+    <!-- BAYES THEOREM -->
+    <div class="card">
+        <h2>Bayes' Theorem</h2>
+        <div class="text-box">
+            <p>
+                Bernoulli Naive Bayes is based on Bayes' Theorem:
+            </p>
+            <p>
+                P(C | X) = (P(X | C) · P(C)) / P(X)
+            </p>
+            <p>
+                Where:
+            </p>
+            <ul>
+                <li><strong>P(C | X)</strong> → Posterior probability</li>
+                <li><strong>P(X | C)</strong> → Likelihood</li>
+                <li><strong>P(C)</strong> → Prior probability</li>
+                <li><strong>P(X)</strong> → Evidence</li>
+            </ul>
         </div>
     </div>
 
@@ -96,10 +118,14 @@
         </div>
     </div>
 
-    <!-- BACK BUTTON -->
+    <!-- BACK BUTTONS -->
     <div class="home-buttons">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+            ⬅ Back to Supervised
+        </a>
+
         <a href="{{ url_for('main.ml_menu') }}" class="btn">
-            ⬅ Back to ML Menu
+            ⬅ Back to ML
         </a>
     </div>
 

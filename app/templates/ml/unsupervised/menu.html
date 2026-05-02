@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Unsupervised Machine Learning{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card">
+        <h1>Unsupervised Machine Learning</h1>
+
+        <p class="subtitle">
+            Explore clustering techniques and pattern discovery without labeled data.
+        </p>
+    </div>
+
+    <!-- BASIC CONCEPTS -->
+    <div class="card">
+        <h2>Basic Concepts</h2>
+
+        <div class="home-buttons">
+            <a href="{{ url_for('unsupervised.unsupervised_concepts') }}" class="btn">
+                View Concepts
+            </a>
+        </div>
+    </div>
+
+    <!-- MANUAL K-MEANS -->
+    <div class="card">
+        <h2>K-Means Manual Exercise</h2>
+
+        <div class="home-buttons">
+            <a href="{{ url_for('unsupervised.unsupervised_manual') }}" class="btn">
+                View Exercise
+            </a>
+        </div>
+    </div>
+
+    <!-- APPLICATION -->
+    <div class="card">
+        <h2>Clustering Application</h2>
+
+        <div class="home-buttons">
+            <a href="{{ url_for('unsupervised.unsupervised_application') }}" class="btn">
+                Run Model
+            </a>
+        </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="home-buttons">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

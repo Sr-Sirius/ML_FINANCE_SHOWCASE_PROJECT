@@ -11,7 +11,7 @@
         <h1>Intelligent ML Suite</h1>
 
         <p class="subtitle">
-            Explore Machine Learning models including regression and classification techniques.
+            Explore Machine Learning models including regression, classification, and clustering techniques.
         </p>
 
         <div class="text-box">
@@ -24,8 +24,13 @@
         </div>
 
         <div class="home-buttons">
-            <a href="/use-cases" class="btn">Explore Use Cases</a>
-            <a href="/ml" class="btn">Supervised Learning</a>
+            <a href="{{ url_for('use_cases.menu') }}" class="btn">Explore Use Cases</a>
+
+            <a href="{{ url_for('main.ml_menu') }}" class="btn">Machine Learning</a>
+
+            <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">Supervised Learning</a>
+
+            <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">Unsupervised Learning</a>
         </div>
 
     </div>

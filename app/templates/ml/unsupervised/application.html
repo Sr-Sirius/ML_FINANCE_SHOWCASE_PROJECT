@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}K-Means Clustering Application{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- TITLE -->
+    <div class="card">
+        <h1>K-Means Clustering Application</h1>
+        <p class="subtitle">
+            Implementation of unsupervised learning using the K-Means algorithm.
+        </p>
+    </div>
+
+    <!-- CONTEXT -->
+    <div class="card">
+        <h2>Context of the Data</h2>
+        <div class="text-box">
+            <p>
+                This dataset represents gym activity, where each record corresponds
+                to a user session. The objective is to group individuals based on
+                their training behavior and identify distinct activity patterns.
+            </p>
+        </div>
+    </div>
+
+    <!-- DATASET -->
+    <div class="card">
+        <h2>Dataset Explanation</h2>
+        <div class="text-box">
+            <ul>
+                <li>Number of records: 2000</li>
+                <li>Feature 1: Training Hours per Week (X)</li>
+                <li>Feature 2: Calories Burned per Session (Y)</li>
+                <li>Source: Synthetic dataset generated in CSV format</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PREPROCESSING -->
+    <div class="card">
+        <h2>Data Preprocessing</h2>
+        <div class="text-box">
+            <p>
+                The dataset was standardized using <b>StandardScaler</b> to normalize
+                feature ranges and improve clustering performance. This prevents
+                variables with larger scales from dominating the model.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODEL -->
+    <div class="card">
+        <h2>Model Training</h2>
+        <div class="text-box">
+            <p>
+                The K-Means algorithm was applied with <b>K = 3 clusters</b>.
+                The model iteratively assigns data points to the nearest centroid
+                and recalculates centroid positions until convergence is reached.
+            </p>
+        </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="card">
+        <h2>Cluster Summary</h2>
+        <div class="text-box">
+            {% if summary %}
+            <ul>
+                {% for k, v in summary.items() %}
+                    <li>Cluster {{ k }}: {{ v }} records</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p>No data available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- CENTROIDS -->
+    <div class="card">
+        <h2>Centroids</h2>
+        <div class="text-box">
+            {% if centers %}
+            <ul>
+                {% for c in centers %}
+                    <li>
+                        Hours: {{ c[0] | round(2) }},
+                        Kcal: {{ c[1] | round(2) }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p>No centroid data available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- GRAPH -->
+    <div class="card">
+        <h2>Visualization</h2>
+
+        {% if plot %}
+            <img src="data:image/png;base64,{{ plot }}" style="max-width:100%; height:auto;">
+
+            <p style="margin-top:10px;">
+                <b>Figure 6.</b> K-Means clustering visualization showing grouped data points and centroids.
+            </p>
+        {% else %}
+            <p>No visualization available.</p>
+        {% endif %}
+    </div>
+
+    <!-- TABLE -->
+    <div class="card">
+        <h2>Cluster Assignment (Sample Data)</h2>
+
+        {% if data %}
+        <div class="text-box">
+            <table style="width:100%; border-collapse: collapse; color:white;">
+                <thead>
+                    <tr style="border-bottom:1px solid white;">
+                        <th>Hours</th>
+                        <th>Kcal</th>
+                        <th>Cluster</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <td>{{ row["hours"] | round(2) }}</td>
+                        <td>{{ row["kcal"] | round(2) }}</td>
+                        <td>{{ row["cluster"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </div>
+
+    <!-- INTERPRETATION -->
+    <div class="card">
+        <h2>Interpretation of Results</h2>
+        <div class="text-box">
+            <p>
+                The K-Means algorithm successfully identified three distinct clusters
+                representing different levels of physical activity.
+            </p>
+            <p>
+                Cluster 0 corresponds to low activity, Cluster 1 to moderate activity,
+                and Cluster 2 to high activity levels.
+            </p>
+            <p>
+                The separation of clusters and the position of centroids demonstrate
+                that the model effectively captured underlying patterns in the dataset.
+            </p>
+            <p>
+                This confirms that unsupervised learning techniques such as K-Means
+                are capable of discovering meaningful structures without labeled data.
+            </p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="home-buttons">
+        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">
+            ⬅ Back to Unsupervised
+        </a>
+
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+            ⬅ Back to ML
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

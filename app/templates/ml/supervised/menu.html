@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Supervised Learning{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card">
+        <h1>Supervised Machine Learning</h1>
+
+        <p class="subtitle">
+            Explore regression and classification models and their applications.
+        </p>
+    </div>
+
+    <!-- REGRESSION -->
+    <div class="card">
+        <h2>Linear Regression</h2>
+
+        <div class="home-buttons">
+            <a href="{{ url_for('regression.regression_concepts') }}" class="btn">Concepts</a>
+            <a href="{{ url_for('regression.regression_application') }}" class="btn">Application</a>
+        </div>
+    </div>
+
+    <!-- LOGISTIC REGRESSION -->
+    <div class="card">
+        <h2>Logistic Regression</h2>
+
+        <div class="home-buttons">
+            <a href="{{ url_for('classification.logistic_concepts') }}" class="btn">Concepts</a>
+            <a href="{{ url_for('classification.logistic_application') }}" class="btn">Application</a>
+        </div>
+    </div>
+
+    <!-- NAIVE BAYES -->
+    <div class="card">
+        <h2>Naive Bayes</h2>
+
+        <div class="home-buttons">
+            <a href="{{ url_for('classification.nb_concepts') }}" class="btn">Concepts</a>
+            <a href="{{ url_for('classification.nb_application') }}" class="btn">Application</a>
+        </div>
+    </div>
+
+    <div class="home-buttons">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn">⬅ Back to ML</a>
+    </div>
+
+</div>
+
+{% endblock %}
