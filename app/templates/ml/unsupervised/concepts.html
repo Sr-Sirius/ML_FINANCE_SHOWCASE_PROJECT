@@ -1,41 +1,115 @@
 {% extends "base.html" %}
 
+{% block title %}Unsupervised Learning Concepts{% endblock %}
+
 {% block content %}
+
 <div class="container">
 
-    <h2>Basic Concepts - Unsupervised Learning</h2>
+    <!-- TITLE -->
+    <div class="card">
+        <h1>Unsupervised Machine Learning</h1>
+        <p class="subtitle">
+            Understanding how machines find patterns without labeled data.
+        </p>
+    </div>
 
-    <h3>What is Unsupervised Learning?</h3>
-    <p>Unsupervised learning finds patterns in data without labeled outputs.</p>
+    <!-- WHAT IS UNSUPERVISED -->
+    <div class="card">
+        <h2>What is Unsupervised Learning?</h2>
+        <div class="text-box">
+            <p>
+                Unsupervised learning is a type of machine learning where the model
+                works with data that has no labeled outputs. The goal is to identify
+                patterns, structures, or relationships within the data.
+            </p>
+        </div>
+    </div>
 
-    <h3>Clustering</h3>
-    <p>Grouping similar data points together.</p>
+    <!-- CLUSTERING -->
+    <div class="card">
+        <h2>Clustering</h2>
+        <div class="text-box">
+            <p>
+                Clustering is the process of grouping similar data points together.
+                Each group is called a cluster.
+            </p>
+        </div>
+    </div>
 
-    <h3>K-Means</h3>
-    <p>Algorithm that divides data into K clusters using centroids.</p>
+    <!-- K-MEANS -->
+    <div class="card">
+        <h2>K-Means Algorithm</h2>
+        <div class="text-box">
+            <ul>
+                <li>Select K initial centroids</li>
+                <li>Assign each point to the nearest centroid</li>
+                <li>Recalculate centroids (average)</li>
+                <li>Repeat until convergence</li>
+            </ul>
+        </div>
+    </div>
 
-    <h3>Centroids</h3>
-    <p>Average position of points in a cluster.</p>
+    <!-- CENTROIDS -->
+    <div class="card">
+        <h2>Centroids</h2>
+        <div class="text-box">
+            <p>
+                A centroid represents the center of a cluster and is calculated
+                as the average of all points belonging to that cluster.
+            </p>
+        </div>
+    </div>
 
-    <h3>Distance (Euclidean)</h3>
-    <p>d = √((x₁ - x₂)² + (y₁ - y₂)²)</p>
+    <!-- DISTANCE -->
+    <div class="card">
+        <h2>Euclidean Distance</h2>
+        <div class="text-box">
+            <p>
+                The distance between two points is calculated using:
+            </p>
+            <p>
+                d = √((x₁ - x₂)² + (y₁ - y₂)²)
+            </p>
+        </div>
+    </div>
 
-    <h3>Iterative Process</h3>
-    <ul>
-        <li>Assign points</li>
-        <li>Update centroids</li>
-        <li>Repeat</li>
-    </ul>
+    <!-- ITERATIVE PROCESS -->
+    <div class="card">
+        <h2>Iterative Process</h2>
+        <div class="text-box">
+            <p>
+                K-Means works iteratively. Each iteration improves cluster
+                assignments until the centroids no longer change.
+            </p>
+        </div>
+    </div>
 
-    <h3>Variance (SSE)</h3>
-    <p>Sum of squared distances to centroids.</p>
+    <!-- VARIANCE -->
+    <div class="card">
+        <h2>Variance (SSE)</h2>
+        <div class="text-box">
+            <p>
+                SSE (Sum of Squared Errors) measures how close points are
+                to their centroid. Lower values indicate better clustering.
+            </p>
+        </div>
+    </div>
 
-    <h3>Applications</h3>
-    <ul>
-        <li>Customer segmentation</li>
-        <li>Market analysis</li>
-        <li>Anomaly detection</li>
-    </ul>
+    <!-- APPLICATIONS -->
+    <div class="card">
+        <h2>Real-World Applications</h2>
+        <div class="text-box">
+            <ul>
+                <li>Customer segmentation</li>
+                <li>Market analysis</li>
+                <li>Fraud detection</li>
+                <li>Image compression</li>
+                <li>Anomaly detection</li>
+            </ul>
+        </div>
+    </div>
 
 </div>
+
 {% endblock %}
