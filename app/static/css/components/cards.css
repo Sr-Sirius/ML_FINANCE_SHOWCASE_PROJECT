@@ -50,3 +50,16 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}

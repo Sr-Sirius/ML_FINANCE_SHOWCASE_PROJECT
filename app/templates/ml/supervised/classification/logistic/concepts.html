@@ -127,6 +127,30 @@
         </div>
     </div>
     
+<!-- MODEL FORMULATION -->
+<div class="card reveal">
+    <h2 class="glow-hover">Model Formulation</h2>
+
+    <div class="text-box">
+        <p>
+            Logistic Regression first computes a linear combination of the input variables:
+        </p>
+
+        <p>
+            z = w₁x₁ + w₂x₂ + ... + b
+        </p>
+
+        <p>
+            This value is then passed through the sigmoid function to produce a probability.
+        </p>
+
+        <p>
+            This process allows the model to transform linear relationships into
+            probabilistic outputs suitable for classification tasks.
+        </p>
+    </div>
+</div>
+
     <!-- DECISION BOUNDARY -->
     <div class="card reveal">
         <h2>Decision Boundary</h2>
@@ -158,6 +182,27 @@
             <img src="{{ url_for('static', filename='images/threshold.png') }}" width="300">
         </div>
     </div>
+
+<!-- PREDICTION PROCESS -->
+<div class="card reveal">
+    <h2 class="glow-hover">Prediction Process</h2>
+
+    <div class="text-box">
+        <p>
+            The prediction process in Logistic Regression follows three main steps:
+        </p>
+
+        <ul>
+            <li>Step 1: Compute linear combination of inputs</li>
+            <li>Step 2: Apply sigmoid function to obtain probability</li>
+            <li>Step 3: Apply threshold to assign final class</li>
+        </ul>
+
+        <p>
+            This pipeline transforms raw input data into a meaningful classification outcome.
+        </p>
+    </div>
+</div>
 
     <!-- REAL WORLD -->
     <div class="card reveal">

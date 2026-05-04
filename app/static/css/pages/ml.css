@@ -42,3 +42,26 @@ td {
 .image-box img {
     border-radius: 10px;
 }
+
+.image-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Imagen controlada */
+.manual-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Caption SIEMPRE debajo */
+.figure-caption {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}

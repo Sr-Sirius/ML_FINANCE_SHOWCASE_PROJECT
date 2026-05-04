@@ -22,3 +22,16 @@
 .text-box li {
     margin-bottom: 5px;
 }
+
+.text-box.center {
+    text-align: center;
+}
+
+.text-box.center ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text-box.center li {
+    margin-bottom: 8px;
+}

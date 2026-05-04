@@ -20,8 +20,15 @@
         <div class="text-box">
             <p>
                 This dataset represents gym activity, where each record corresponds
-                to a user session. The objective is to group individuals based on
-                their training behavior and identify distinct activity patterns.
+                to a user session.
+            </p>
+            <p>
+                The objective is to group individuals based on their training behavior
+                in order to identify patterns such as low, medium, and high activity users.
+            </p>
+            <p>
+                This type of analysis is commonly used in fitness applications and health platforms
+                to personalize recommendations and improve user engagement.
             </p>
         </div>
     </div>
@@ -36,6 +43,14 @@
                 <li>Feature 2: Calories Burned per Session (Y)</li>
                 <li>Source: Synthetic dataset generated in CSV format</li>
             </ul>
+            <p>
+                The dataset is sufficiently large to allow meaningful clustering,
+                and both features are continuous numerical variables suitable for distance-based algorithms.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/calories.png') }}" 
+                class="application-img">
         </div>
     </div>
 
@@ -44,9 +59,14 @@
         <h2 class="glow-hover">Data Preprocessing</h2>
         <div class="text-box">
             <p>
-                The dataset was standardized using <b>StandardScaler</b> to normalize
-                feature ranges and improve clustering performance. This prevents
-                variables with larger scales from dominating the model.
+                The dataset was standardized using <b>StandardScaler</b> to normalize feature ranges.
+            </p>
+            <p>
+                This step is crucial because K-Means relies on distance calculations,
+                and variables with larger scales could otherwise dominate the clustering process.
+            </p>
+            <p>
+                Normalization ensures that both features contribute equally to the model.
             </p>
         </div>
     </div>
@@ -56,9 +76,15 @@
         <h2 class="glow-hover">Model Training</h2>
         <div class="text-box">
             <p>
-                The K-Means algorithm was applied with <b>K = 3 clusters</b>.
+                The K-Means algorithm was applied with <b>K = 3 clusters</b>, assuming three distinct activity levels.
+            </p>
+            <p>
                 The model iteratively assigns data points to the nearest centroid
                 and recalculates centroid positions until convergence is reached.
+            </p>
+            <p>
+                This process minimizes the intra-cluster variance (SSE),
+                improving the compactness and separation of clusters.
             </p>
         </div>
     </div>
@@ -73,6 +99,10 @@
                     <li>Cluster {{ k }}: {{ v }} records</li>
                 {% endfor %}
             </ul>
+            <p>
+                This summary shows how data points are distributed across clusters,
+                helping evaluate whether the grouping is balanced or skewed.
+            </p>
             {% else %}
                 <p>No data available.</p>
             {% endif %}
@@ -92,6 +122,10 @@
                     </li>
                 {% endfor %}
             </ul>
+            <p>
+                Centroids represent the average behavior of each cluster and help interpret
+                the characteristics of each group.
+            </p>
             {% else %}
                 <p>No centroid data available.</p>
             {% endif %}
@@ -110,6 +144,9 @@
             <p class="subtitle">
                 <b>Figure 6.</b> K-Means clustering visualization showing grouped data points and centroids.
             </p>
+            <p class="subtitle">
+                Each color represents a cluster, and centroids indicate cluster centers.
+            </p>
         {% else %}
             <div class="text-box">
                 No visualization available.
@@ -123,7 +160,6 @@
 
         {% if data %}
         <div class="text-box">
-
             <table style="width:100%; border-collapse: collapse; color:white;">
                 <thead>
                     <tr style="border-bottom:1px solid rgba(255,255,255,0.5);">
@@ -143,6 +179,9 @@
                 </tbody>
             </table>
 
+            <p>
+                This table provides a sample of how individual records are assigned to clusters.
+            </p>
         </div>
         {% else %}
             <div class="text-box">
@@ -156,21 +195,27 @@
         <h2 class="glow-hover">Interpretation of Results</h2>
         <div class="text-box">
             <p>
-                The K-Means algorithm successfully identified three distinct clusters
-                representing different levels of physical activity.
+                The K-Means algorithm successfully identified three distinct clusters representing different levels of physical activity.
             </p>
             <p>
-                Cluster 0 corresponds to low activity, Cluster 1 to moderate activity,
-                and Cluster 2 to high activity levels.
+                Cluster 0 corresponds to low activity, Cluster 1 to moderate activity, and Cluster 2 to high activity levels.
             </p>
             <p>
-                The separation of clusters and the position of centroids demonstrate
-                that the model effectively captured underlying patterns in the dataset.
+                The separation of clusters and the distribution of centroids indicate that the model effectively captured
+                patterns in user behavior.
             </p>
             <p>
-                This confirms that unsupervised learning techniques such as K-Means
-                are capable of discovering meaningful structures without labeled data.
+                Additionally, the clustering results demonstrate how unsupervised learning can provide valuable insights
+                without requiring labeled data.
             </p>
+            <p>
+                This approach can be applied in real-world systems to segment users, optimize recommendations,
+                and improve decision-making processes.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/arms.png') }}" 
+                class="application-img">
         </div>
     </div>
 

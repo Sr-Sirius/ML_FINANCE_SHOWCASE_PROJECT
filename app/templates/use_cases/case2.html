@@ -15,7 +15,18 @@
     <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
-            Financial fraud is a growing concern in digital transactions, where unauthorized activities can result in significant financial losses. Detecting fraudulent transactions in real time is essential for protecting users and financial institutions. This use case focuses on identifying whether a transaction is legitimate or fraudulent.
+            <p>
+                Financial fraud is a growing concern in digital transactions, where unauthorized activities 
+                can result in significant financial losses for both individuals and institutions.
+            </p>
+            <p>
+                Fraudulent behavior is often difficult to detect because attackers continuously adapt their strategies 
+                to mimic legitimate user behavior, making traditional rule-based systems insufficient.
+            </p>
+            <p>
+                This use case focuses on identifying whether a transaction is legitimate or fraudulent 
+                by analyzing patterns and anomalies in transaction data.
+            </p>
         </div>
 
         <div class="image-box">
@@ -27,7 +38,17 @@
     <div class="card reveal">
         <h2>Type of Machine Learning</h2>
         <div class="text-box">
-            This is a supervised learning classification problem, where the model predicts a discrete label (fraud or not fraud). Classification models are ideal for distinguishing between categories based on input patterns.
+            <p>
+                This is a <b>supervised learning classification problem</b>, where the model predicts 
+                a discrete label: fraud or non-fraud.
+            </p>
+            <p>
+                Classification models are suitable because they can learn patterns from labeled historical data 
+                and distinguish between normal and suspicious transactions.
+            </p>
+            <p>
+                The model uses statistical patterns and behavioral signals to determine the likelihood of fraud.
+            </p>
         </div>
 
         <div class="image-box">
@@ -42,13 +63,16 @@
             <p>The model may include features such as:</p>
 
             <ul>
-                <li><strong>Transaction amount</strong></li>
-                <li><strong>Transaction location</strong></li>
-                <li><strong>Time of transaction</strong></li>
-                <li><strong>Frequency of transactions</strong></li>
+                <li><strong>Transaction amount</strong> → detects unusually high or low values</li>
+                <li><strong>Transaction location</strong> → identifies geographic anomalies</li>
+                <li><strong>Time of transaction</strong> → detects unusual activity hours</li>
+                <li><strong>Frequency of transactions</strong> → captures abnormal behavior patterns</li>
             </ul>
 
-            <p>These variables help identify unusual or suspicious behavior.</p>
+            <p>
+                These variables help identify suspicious behavior by comparing current transactions 
+                with typical user activity patterns.
+            </p>
         </div>
 
         <div class="image-box">
@@ -63,11 +87,18 @@
             <p>The output is a binary classification:</p>
 
             <ul>
-                <li><strong>Fraudulent transaction</strong></li>
-                <li><strong>Legitimate transaction</strong></li>
+                <li><strong>Fraudulent transaction (1)</strong></li>
+                <li><strong>Legitimate transaction (0)</strong></li>
             </ul>
 
-            <p>This allows systems to trigger alerts or block suspicious activities.</p>
+            <p>
+                In addition to classification, many systems also provide a probability score,
+                indicating the likelihood that a transaction is fraudulent.
+            </p>
+
+            <p>
+                This enables systems to trigger alerts, block transactions, or request additional verification.
+            </p>
         </div>
 
         <div class="image-box">
@@ -79,7 +110,17 @@
     <div class="card reveal">
         <h2>Real-World Relevance</h2>
         <div class="text-box">
-            Banks and payment platforms rely heavily on machine learning models to detect fraud in real time. These systems enhance security, reduce financial losses, and build user trust in digital financial services.
+            <p>
+                Banks, e-commerce platforms, and payment systems rely heavily on machine learning models 
+                to detect fraud in real time.
+            </p>
+            <p>
+                These systems help reduce financial losses, prevent identity theft, and enhance transaction security.
+            </p>
+            <p>
+                Additionally, fraud detection models improve customer trust and enable financial institutions 
+                to operate more securely in digital environments.
+            </p>
         </div>
 
         <div class="image-box">

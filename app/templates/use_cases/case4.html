@@ -15,7 +15,18 @@
     <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
-            In the automotive industry, determining the value or risk associated with a vehicle is essential for buyers, sellers, and insurers. Accurately predicting car prices or assessing risk factors helps improve decision-making and market transparency.
+            <p>
+                In the automotive industry, determining the value or risk associated with a vehicle 
+                is essential for buyers, sellers, and insurance companies.
+            </p>
+            <p>
+                Car prices are influenced by multiple factors such as depreciation, usage, and brand reputation, 
+                while risk assessment involves evaluating the likelihood of accidents, failures, or high maintenance costs.
+            </p>
+            <p>
+                This use case focuses on analyzing both aspects simultaneously, enabling more accurate valuation 
+                and better decision-making in vehicle transactions and insurance policies.
+            </p>
         </div>
 
         <div class="image-box">
@@ -27,12 +38,17 @@
     <div class="card reveal">
         <h2>Type of Machine Learning</h2>
         <div class="text-box">
-            <p>This use case can involve:</p>
+            <p>This use case combines two supervised learning approaches:</p>
 
             <ul>
-                <li><strong>Regression →</strong> to predict car prices</li>
-                <li><strong>Classification →</strong> to determine risk level (e.g., high-risk vs low-risk vehicle)</li>
+                <li><strong>Regression →</strong> used to predict the car's market price as a continuous value</li>
+                <li><strong>Classification →</strong> used to categorize the vehicle into risk levels (e.g., high-risk vs low-risk)</li>
             </ul>
+
+            <p>
+                This dual approach allows the system to provide both economic value and risk assessment, 
+                offering a more complete analysis compared to using a single model.
+            </p>
         </div>
 
         <div class="image-box">
@@ -47,14 +63,17 @@
             <p>Relevant features include:</p>
 
             <ul>
-                <li><strong>Car age</strong></li>
-                <li><strong>Mileage</strong></li>
-                <li><strong>Engine size</strong></li>
-                <li><strong>Brand and model</strong></li>
-                <li><strong>Maintenance history</strong></li>
+                <li><strong>Car age</strong> → older vehicles tend to have lower value and higher risk</li>
+                <li><strong>Mileage</strong> → high mileage may indicate wear and increased maintenance needs</li>
+                <li><strong>Engine size</strong> → influences performance, fuel consumption, and insurance cost</li>
+                <li><strong>Brand and model</strong> → affects reliability, resale value, and reputation</li>
+                <li><strong>Maintenance history</strong> → indicates how well the vehicle has been preserved</li>
             </ul>
 
-            <p>These variables influence both price and risk.</p>
+            <p>
+                These variables provide both economic and technical insights that influence price estimation 
+                and risk classification.
+            </p>
         </div>
 
         <div class="image-box">
@@ -66,12 +85,17 @@
     <div class="card reveal">
         <h2>Expected Output</h2>
         <div class="text-box">
-            <p>Depending on the model:</p>
+            <p>The system produces two types of outputs:</p>
 
             <ul>
-                <li><strong>Predicted car price</strong> (regression)</li>
-                <li><strong>Risk category</strong> (classification)</li>
+                <li><strong>Predicted car price</strong> → a numerical estimation of the vehicle’s market value</li>
+                <li><strong>Risk category</strong> → classification such as high-risk or low-risk</li>
             </ul>
+
+            <p>
+                In advanced systems, the classification model may also provide a probability score, 
+                indicating the confidence level of the risk prediction.
+            </p>
         </div>
 
         <div class="image-box">
@@ -83,7 +107,18 @@
     <div class="card reveal">
         <h2>Real-World Relevance</h2>
         <div class="text-box">
-            Car dealerships, insurance companies, and online marketplaces use machine learning to estimate vehicle value and assess risk. This improves pricing accuracy and helps customers make better purchasing decisions.
+            <p>
+                Car dealerships use predictive models to set competitive and fair prices for vehicles, 
+                improving transparency in the market.
+            </p>
+            <p>
+                Insurance companies rely on risk classification models to determine premiums and assess 
+                the likelihood of claims.
+            </p>
+            <p>
+                Online marketplaces also integrate these technologies to provide users with price estimates 
+                and risk insights, enhancing user trust and decision-making.
+            </p>
         </div>
 
         <div class="image-box">

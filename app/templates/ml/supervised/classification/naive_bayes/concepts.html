@@ -38,6 +38,28 @@
         </div>
     </div>
 
+<!-- PREDICTION PROCESS -->
+<div class="card reveal">
+    <h2 class="glow-hover">Prediction Process</h2>
+
+    <div class="text-box">
+        <p>
+            The prediction process in Bernoulli Naive Bayes follows these steps:
+        </p>
+
+        <ul>
+            <li>Step 1: Evaluate the probability of each feature given the class</li>
+            <li>Step 2: Multiply probabilities assuming independence</li>
+            <li>Step 3: Multiply by prior probability of the class</li>
+            <li>Step 4: Select the class with the highest probability</li>
+        </ul>
+
+        <p>
+            This allows the model to classify inputs efficiently even with multiple features.
+        </p>
+    </div>
+</div>
+
     <!-- BAYES THEOREM -->
     <div class="card reveal">
         <h2>Bayes' Theorem</h2>
@@ -60,12 +82,39 @@
         </div>
     </div>
 
+<!-- MODEL FORMULATION -->
+<div class="card reveal">
+    <h2 class="glow-hover">Model Formulation</h2>
+
+    <div class="text-box">
+        <p>
+            In Naive Bayes, the probability of a class given multiple features is calculated as:
+        </p>
+
+        <p>
+            P(C | X₁, X₂, ..., Xn) ∝ P(C) · P(X₁ | C) · P(X₂ | C) · ... · P(Xn | C)
+        </p>
+
+        <p>
+            This formulation assumes that all features are conditionally independent given the class.
+        </p>
+
+        <p>
+            In Bernoulli Naive Bayes, each feature contributes based on whether it is present (1) or absent (0).
+        </p>
+    </div>
+</div>
+
     <!-- MAIN CHARACTERISTICS -->
     <div class="card reveal">
         <h2>Main Characteristics</h2>
         <div class="text-box">
             <p>Bernoulli Naive Bayes operates on binary-valued features and assumes independence between variables. It is computationally efficient and performs well even with relatively small datasets.</p>
             <p>The model is simple, fast, and easy to interpret, making it a strong baseline for many classification problems.</p>
+            <p>
+                The independence assumption significantly reduces computational complexity,
+                making Naive Bayes especially effective for high-dimensional datasets.
+            </p>
         </div>
 
         <div class="image-box">
