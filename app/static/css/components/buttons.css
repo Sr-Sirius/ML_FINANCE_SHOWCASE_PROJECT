@@ -31,3 +31,19 @@ body.cars .btn {
 .btn:active {
     transform: scale(0.96);
 }
+
+.active-btn {
+    opacity: 1 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.active-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}

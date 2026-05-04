@@ -89,6 +89,89 @@
         </div>
     </div>
 
+ <!-- K SELECTION -->    
+<div class="text-box">
+    <p><strong>Current K:</strong> {{ k_selected }}</p>
+</div>
+<div class="card reveal glow-hover">
+    <h2>Select Number of Clusters (K)</h2>
+
+    <form method="POST" style="text-align:center;">
+
+        <input type="number" name="k" min="1" max="10" value="{{ k_selected or 3 }}" required>
+
+        <br><br>
+
+        <button type="submit" class="btn active-btn">
+            Run Clustering
+        </button>
+
+    </form>
+
+    <div class="text-box" style="margin-top:15px;">
+        <p>
+            Adjust the number of clusters (K) to explore how grouping changes.
+        </p>
+    </div>
+</div>
+
+ <!-- GRAPH -->
+    <div class="card reveal">
+        <h2 class="glow-hover">Visualization</h2>
+
+        {% if plot %}
+            <div class="image-box">
+                <img src="data:image/png;base64,{{ plot }}" style="max-width:100%; height:auto;">
+            </div>
+
+            <p class="subtitle">
+                <b>Figure 6.</b> K-Means clustering visualization showing grouped data points and centroids.
+            </p>
+            <p class="subtitle">
+                Each color represents a cluster, and centroids indicate cluster centers.
+            </p>
+        {% else %}
+            <div class="text-box">
+                No visualization available.
+            </div>
+        {% endif %}
+    </div>
+
+<!-- METRICS -->
+<div class="card reveal">
+    <h2 class="glow-hover">Model Evaluation Metrics</h2>
+
+    <div class="text-box">
+        {% if sse %}
+        <p><strong>Selected K:</strong> {{ k_selected }}</p>
+        <p>
+            <strong>SSE (Sum of Squared Errors):</strong> {{ sse | round(2) }}
+        </p>
+        <p>
+            SSE measures how close the data points are to their respective centroids.
+            Lower values indicate more compact and well-defined clusters.
+        </p>
+        {% else %}
+        <p>No metric data available.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- ELBOW METHOD -->
+<div class="card reveal">
+    <h2 class="glow-hover">Elbow Method</h2>
+
+    {% if elbow_plot %}
+    <div class="image-box">
+        <img src="data:image/png;base64,{{ elbow_plot }}" class="application-img">
+
+        <p class="figure-caption">
+            <b>Figure X.</b> Elbow method for optimal K selection.
+        </p>
+    </div>
+    {% endif %}
+</div>
+
     <!-- SUMMARY -->
     <div class="card reveal">
         <h2 class="glow-hover">Cluster Summary</h2>
@@ -130,28 +213,6 @@
                 <p>No centroid data available.</p>
             {% endif %}
         </div>
-    </div>
-
-    <!-- GRAPH -->
-    <div class="card reveal">
-        <h2 class="glow-hover">Visualization</h2>
-
-        {% if plot %}
-            <div class="image-box">
-                <img src="data:image/png;base64,{{ plot }}" style="max-width:100%; height:auto;">
-            </div>
-
-            <p class="subtitle">
-                <b>Figure 6.</b> K-Means clustering visualization showing grouped data points and centroids.
-            </p>
-            <p class="subtitle">
-                Each color represents a cluster, and centroids indicate cluster centers.
-            </p>
-        {% else %}
-            <div class="text-box">
-                No visualization available.
-            </div>
-        {% endif %}
     </div>
 
     <!-- TABLE -->
