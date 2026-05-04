@@ -25,7 +25,7 @@ def unsupervised_menu():
 def unsupervised_concepts():
     return render_template(
         "ml/unsupervised/concepts.html",
-        theme="ml"
+        theme="unsupervised"
     )
 
 # =========================
@@ -35,7 +35,7 @@ def unsupervised_concepts():
 def unsupervised_manual():
     return render_template(
         "ml/unsupervised/manual.html",
-        theme="ml"
+        theme="unsupervised"
     )
 
 # =========================
@@ -50,7 +50,7 @@ def unsupervised_application():
         return render_template(
             "ml/unsupervised/application.html",
             **result,
-            theme="ml"
+            theme="unsupervised"
         )
 
     except Exception as e:
@@ -61,5 +61,5 @@ def unsupervised_application():
             summary={},
             plot=None,
             error=str(e),
-            theme="ml"
+            theme="unsupervised"
         )

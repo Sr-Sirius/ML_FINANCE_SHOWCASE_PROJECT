@@ -6,7 +6,8 @@
 
 <div class="container">
 
-    <div class="card">
+    <!-- TITLE -->
+    <div class="card reveal glow-hover">
         <h1>Supervised Machine Learning</h1>
 
         <p class="subtitle">
@@ -15,37 +16,40 @@
     </div>
 
     <!-- REGRESSION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Linear Regression</h2>
 
         <div class="home-buttons">
-            <a href="{{ url_for('regression.regression_concepts') }}" class="btn">Concepts</a>
-            <a href="{{ url_for('regression.regression_application') }}" class="btn">Application</a>
+            <a href="{{ url_for('regression.regression_concepts') }}" class="btn glow-hover">Concepts</a>
+            <a href="{{ url_for('regression.regression_application') }}" class="btn glow-hover">Application</a>
         </div>
     </div>
 
-    <!-- LOGISTIC REGRESSION -->
-    <div class="card">
+    <!-- LOGISTIC -->
+    <div class="card reveal">
         <h2>Logistic Regression</h2>
 
         <div class="home-buttons">
-            <a href="{{ url_for('classification.logistic_concepts') }}" class="btn">Concepts</a>
-            <a href="{{ url_for('classification.logistic_application') }}" class="btn">Application</a>
+            <a href="{{ url_for('classification.logistic_concepts') }}" class="btn glow-hover">Concepts</a>
+            <a href="{{ url_for('classification.logistic_application') }}" class="btn glow-hover">Application</a>
         </div>
     </div>
 
     <!-- NAIVE BAYES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Naive Bayes</h2>
 
         <div class="home-buttons">
-            <a href="{{ url_for('classification.nb_concepts') }}" class="btn">Concepts</a>
-            <a href="{{ url_for('classification.nb_application') }}" class="btn">Application</a>
+            <a href="{{ url_for('classification.nb_concepts') }}" class="btn glow-hover">Concepts</a>
+            <a href="{{ url_for('classification.nb_application') }}" class="btn glow-hover">Application</a>
         </div>
     </div>
 
+    <!-- BACK -->
     <div class="home-buttons">
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">⬅ Back to ML</a>
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
+            ⬅ Back to ML
+        </a>
     </div>
 
 </div>

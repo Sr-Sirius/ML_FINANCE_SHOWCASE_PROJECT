@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+form input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+
+    background: rgba(255,255,255,0.08);
+    color: white;
+
+    outline: none;
+
+    transition: all 0.25s ease;
+}
+
+form input:focus {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.02);
+    box-shadow: 0 0 12px var(--glow-color);
+}
+
+form input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+form button {
+    margin-top: 10px;
+}

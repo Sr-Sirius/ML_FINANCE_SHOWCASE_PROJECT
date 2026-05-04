@@ -1,0 +1,44 @@
+/* =========================
+   MACHINE LEARNING PAGES
+========================= */
+
+.ml-container {
+    text-align: center;
+}
+
+.ml-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.ml-subtitle {
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+/* Tables (muy importante para clustering) */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+}
+
+td {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Images inside ML */
+
+.image-box img {
+    border-radius: 10px;
+}

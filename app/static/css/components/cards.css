@@ -1,0 +1,52 @@
+/* =========================
+   CARD BASE
+========================= */
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+
+    border-radius: 15px;
+    padding: 40px;
+
+    color: white;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+    text-align: center;
+    margin-bottom: 40px;
+
+    transition: all 0.3s ease;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+}
+
+.card + .card {
+    margin-top: 20px;
+}
+
+/* =========================
+   CARD INTERACTIONS
+========================= */
+
+.card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   REVEAL ANIMATION (SCROLL)
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

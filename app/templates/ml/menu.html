@@ -6,7 +6,8 @@
 
 <div class="container">
 
-    <div class="card">
+    <!-- TITLE -->
+    <div class="card reveal glow-hover">
         <h1>Machine Learning</h1>
 
         <p class="subtitle">
@@ -15,20 +16,24 @@
     </div>
 
     <!-- SUPERVISED -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Supervised Learning</h2>
 
         <div class="home-buttons">
-            <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">Go to Supervised</a>
+            <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
+                Go to Supervised
+            </a>
         </div>
     </div>
 
     <!-- UNSUPERVISED -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Unsupervised Learning</h2>
 
         <div class="home-buttons">
-            <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">Go to Unsupervised</a>
+            <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn glow-hover">
+                Go to Unsupervised
+            </a>
         </div>
     </div>
 

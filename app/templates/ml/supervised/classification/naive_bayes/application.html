@@ -6,12 +6,12 @@
 
 <div class="container">
 
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Bernoulli Naive Bayes - Application</h1>
     </div>
 
     <!-- PROBLEM -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
             This application classifies the risk level of a driver based on observable driving behaviors. 
@@ -25,7 +25,7 @@
     </div>
 
     <!-- DATASET -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Dataset Explanation</h2>
         <div class="text-box">
             The dataset consists of binary variables representing driver behaviors. 
@@ -35,7 +35,7 @@
     </div>
 
     <!-- VARIABLES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Input Variables and Target Variable</h2>
         <div class="text-box">
             <ul>
@@ -46,7 +46,7 @@
     </div>
 
     <!-- TRAINING -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Model Training Process</h2>
         <div class="text-box">
             The Bernoulli Naive Bayes model calculates the probability of each class given the observed features, 
@@ -55,7 +55,7 @@
     </div>
 
     <!-- FORM -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h2>Prediction Form</h2>
 
         <form method="POST">
@@ -64,7 +64,7 @@
             <input type="number" name="phone" min="0" max="1" placeholder="Phone Usage (0 or 1)" required>
             <input type="number" name="braking" min="0" max="1" placeholder="Aggressive Braking (0 or 1)" required>
 
-            <button type="submit" class="btn">Predict</button>
+            <button type="submit" class="btn glow-hover">Predict</button>
         </form>
 
         {% if prediction is not none %}
@@ -79,7 +79,7 @@
     </div>
 
     <!-- CONFUSION MATRIX -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Confusion Matrix</h2>
         <div class="text-box">
             The confusion matrix shows how well the model classifies driver behavior into correct and incorrect predictions.
@@ -91,7 +91,7 @@
     </div>
 
     <!-- METRICS -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Model Evaluation Metrics</h2>
 
         <div class="text-box">
@@ -105,7 +105,7 @@
     </div>
 
     <!-- ROC -->
-    <div class="card">
+    <div class="card reveal">
         <h2>ROC Curve / AUC</h2>
         <div class="text-box">
             The ROC curve illustrates the model’s ability to distinguish between high-risk and low-risk drivers.
@@ -117,7 +117,7 @@
     </div>
 
     <!-- INTERPRETATION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Interpretation of Results</h2>
         <div class="text-box">  
             <p>The Bernoulli Naive Bayes model demonstrates solid performance in classifying driver risk based on binary behavior indicators.</p>
@@ -132,11 +132,11 @@
 
     <!-- BACK BUTTONS -->
     <div class="home-buttons">
-        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Supervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

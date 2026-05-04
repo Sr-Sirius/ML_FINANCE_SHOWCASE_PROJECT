@@ -6,11 +6,13 @@
 
 <div class="container">
 
-    <div class="card">
+    <!-- TITLE -->
+    <div class="card reveal glow-hover">
         <h1>Fraud Detection in Financial Transactions</h1>
     </div>
 
-    <div class="card">
+    <!-- PROBLEM -->
+    <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
             Financial fraud is a growing concern in digital transactions, where unauthorized activities can result in significant financial losses. Detecting fraudulent transactions in real time is essential for protecting users and financial institutions. This use case focuses on identifying whether a transaction is legitimate or fraudulent.
@@ -21,7 +23,8 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- TYPE -->
+    <div class="card reveal">
         <h2>Type of Machine Learning</h2>
         <div class="text-box">
             This is a supervised learning classification problem, where the model predicts a discrete label (fraud or not fraud). Classification models are ideal for distinguishing between categories based on input patterns.
@@ -32,7 +35,8 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- INPUT -->
+    <div class="card reveal">
         <h2>Input Data</h2>
         <div class="text-box">
             <p>The model may include features such as:</p>
@@ -43,7 +47,7 @@
                 <li><strong>Time of transaction</strong></li>
                 <li><strong>Frequency of transactions</strong></li>
             </ul>
-          
+
             <p>These variables help identify unusual or suspicious behavior.</p>
         </div>
 
@@ -52,16 +56,17 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- OUTPUT -->
+    <div class="card reveal">
         <h2>Expected Output</h2>
         <div class="text-box">
-             <p>The output is a binary classification:</p>
+            <p>The output is a binary classification:</p>
 
             <ul>
                 <li><strong>Fraudulent transaction</strong></li>
                 <li><strong>Legitimate transaction</strong></li>
             </ul>
-            
+
             <p>This allows systems to trigger alerts or block suspicious activities.</p>
         </div>
 
@@ -70,7 +75,8 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- REAL WORLD -->
+    <div class="card reveal">
         <h2>Real-World Relevance</h2>
         <div class="text-box">
             Banks and payment platforms rely heavily on machine learning models to detect fraud in real time. These systems enhance security, reduce financial losses, and build user trust in digital financial services.
@@ -81,11 +87,13 @@
         </div>
     </div>
 
-     <div class="home-buttons">
-        <a href="{{ url_for('use_cases.menu') }}" class="btn">
+    <!-- BACK -->
+    <div class="home-buttons">
+        <a href="{{ url_for('use_cases.menu') }}" class="btn glow-hover">
             ⬅ Back to Use Cases
         </a>
     </div>
 
 </div>
+
 {% endblock %}

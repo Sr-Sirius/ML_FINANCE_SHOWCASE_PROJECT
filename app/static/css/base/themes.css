@@ -1,0 +1,27 @@
+/* 🔵 MACHINE LEARNING THEME */
+
+body.ml {
+    background: url('../../images/ml_bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🟢 FINANCE THEME */
+
+body.finance {
+    background: url('../../images/finance_bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🔴 CARS / CLASSIFICATION THEME */
+
+body.cars {
+    background: url('../../images/cars_bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 🟣 UNSUPERVISED / CLUSTERING THEME */
+
+body.unsupervised {
+    background: url('../../images/unsupervised_bg.png') no-repeat center center fixed;
+    background-size: cover;
+}

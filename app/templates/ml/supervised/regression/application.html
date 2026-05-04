@@ -7,7 +7,7 @@
 <div class="container">
 
     <!-- TITLE -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Linear Regression — Application</h1>
 
         <div class="text-box">
@@ -20,7 +20,7 @@
     </div>
 
     <!-- DATASET -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Dataset Explanation</h2>
 
         <div class="text-box">
@@ -33,7 +33,7 @@
     </div>
 
     <!-- VARIABLES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Variables Used</h2>
 
         <div class="text-box">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- DATA PREP -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Data Preparation</h2>
 
         <div class="text-box">
@@ -57,7 +57,7 @@
     </div>
 
     <!-- GRAPH -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Regression Graph</h2>
 
         <div class="text-box">
@@ -79,7 +79,7 @@
     </div>
 
     <!-- FORM -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Make a Prediction</h2>
 
         <form method="POST">
@@ -88,15 +88,13 @@
             <input type="number" step="any" name="previous_expenses" placeholder="Previous Expenses" required>
             <input type="number" step="any" name="transactions" placeholder="Transactions" required>
 
-            <br><br>
-
-            <button class="btn" type="submit">Predict</button>
+            <button class="btn glow-hover" type="submit">Predict</button>
         </form>
     </div>
 
     <!-- RESULT -->
     {% if prediction is not none %}
-    <div class="card">
+    <div class="card reveal">
         <h2>Prediction Result</h2>
 
         <!-- RESULT -->
@@ -133,11 +131,11 @@
 
     <!-- BACK BUTTONS -->
     <div class="home-buttons">
-        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Supervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

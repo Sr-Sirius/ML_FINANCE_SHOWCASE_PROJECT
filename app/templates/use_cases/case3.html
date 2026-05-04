@@ -6,11 +6,13 @@
 
 <div class="container">
 
-    <div class="card">
+    <!-- TITLE -->
+    <div class="card reveal glow-hover">
         <h1>Healthcare Risk Prediction</h1>
     </div>
 
-    <div class="card">
+    <!-- PROBLEM -->
+    <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
             Healthcare systems aim to identify patients at risk of developing serious conditions as early as possible. Early detection can significantly improve treatment outcomes and reduce healthcare costs. This use case focuses on predicting whether a patient is at risk based on medical data.
@@ -21,7 +23,8 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- TYPE -->
+    <div class="card reveal">
         <h2>Type of Machine Learning</h2>
         <div class="text-box">
             This is a supervised classification problem, where the model predicts whether a patient belongs to a “high-risk” or “low-risk” category.
@@ -32,10 +35,11 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- INPUT -->
+    <div class="card reveal">
         <h2>Input Data</h2>
         <div class="text-box">
-             <p>Typical input variables include:</p>
+            <p>Typical input variables include:</p>
 
             <ul>
                 <li><strong>Age</strong></li>
@@ -43,7 +47,7 @@
                 <li><strong>Cholesterol levels</strong></li>
                 <li><strong>Medical history</strong></li>
             </ul>
-          
+
             <p>These features provide critical information about a patient’s health status.</p>
         </div>
 
@@ -52,7 +56,8 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- OUTPUT -->
+    <div class="card reveal">
         <h2>Expected Output</h2>
         <div class="text-box">
             The model produces a risk classification, indicating whether the patient is likely to develop a specific condition.
@@ -63,7 +68,8 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- REAL WORLD -->
+    <div class="card reveal">
         <h2>Real-World Relevance</h2>
         <div class="text-box">
             Hospitals and healthcare providers use predictive models to support early diagnosis and preventive care. This leads to better patient outcomes and more efficient use of medical resources.
@@ -74,8 +80,9 @@
         </div>
     </div>
 
+    <!-- BACK -->
     <div class="home-buttons">
-        <a href="{{ url_for('use_cases.menu') }}" class="btn">
+        <a href="{{ url_for('use_cases.menu') }}" class="btn glow-hover">
             ⬅ Back to Use Cases
         </a>
     </div>

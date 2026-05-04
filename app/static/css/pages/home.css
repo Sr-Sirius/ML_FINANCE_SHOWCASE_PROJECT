@@ -1,0 +1,18 @@
+.home-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.subtitle {
+    margin: 20px 0;
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.home-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
