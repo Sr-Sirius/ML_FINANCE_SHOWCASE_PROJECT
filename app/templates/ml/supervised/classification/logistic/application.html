@@ -7,12 +7,12 @@
 <div class="container">
 
     <!-- TITLE -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Logistic Regression - Application</h1>
     </div>
 
     <!-- PROBLEM -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
             This application aims to predict the risk of a car accident based on driver behavior and vehicle-related factors. 
@@ -25,16 +25,28 @@
     </div>
 
     <!-- DATASET -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Dataset Explanation</h2>
         <div class="text-box">
-            The dataset contains information related to driving behavior and vehicle usage. 
-            It includes variables such as speed, number of trips, and driving time, which are used to identify patterns associated with accident risk.
-        </div>
+    <p>
+        The dataset contains structured driving behavior data collected from simulated or real scenarios.
+        It includes multiple observations where each record represents a driver session.
+    </p>
+
+    <p>
+        Key variables include speed, trip frequency, and driving duration, which are strongly related
+        to driving risk patterns.
+    </p>
+
+    <p>
+        The dataset is labeled, meaning each record is classified as either high risk (1) or low risk (0),
+        enabling supervised learning.
+    </p>
+</div>
     </div>
 
     <!-- VARIABLES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Input Variables and Target Variable</h2>
         <div class="text-box">
             <ul>
@@ -45,7 +57,7 @@
     </div>
 
     <!-- DATA PREP -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Data Preparation</h2>
         <div class="text-box">
             The dataset is preprocessed by cleaning missing values, normalizing numerical variables, 
@@ -54,7 +66,7 @@
     </div>
 
     <!-- TRAINING -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Model Training Process</h2>
         <div class="text-box">
             A Logistic Regression model is trained using labeled data, where each record indicates whether a driver is high risk or low risk. 
@@ -62,8 +74,29 @@
         </div>
     </div>
 
+<!-- MODEL FLOW -->
+<div class="card reveal">
+    <h2 class="glow-hover">Model Prediction Flow</h2>
+
+    <div class="text-box">
+        <p>
+            The Logistic Regression model follows a structured prediction pipeline:
+        </p>
+
+        <ul>
+            <li>Step 1: Input variables are combined linearly</li>
+            <li>Step 2: The sigmoid function converts the result into a probability</li>
+            <li>Step 3: A classification threshold is applied to determine the final class</li>
+        </ul>
+
+        <p>
+            This process allows the model to transform raw driving data into a risk classification.
+        </p>
+    </div>
+</div>
+
     <!-- FORM -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h2>Prediction Form</h2>
 
         <form method="POST">
@@ -76,7 +109,7 @@
             <label>Driving Time</label>
             <input type="number" step="any" name="time" required>
 
-            <button type="submit" class="btn">Predict</button>
+            <button type="submit" class="btn glow-hover">Predict</button>
         </form>
 
         {% if prediction is not none %}
@@ -88,7 +121,7 @@
     </div>
 
     <!-- CONFUSION MATRIX -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Confusion Matrix</h2>
         <div class="text-box">
             The confusion matrix shows how well the model classifies data into correct and incorrect predictions.
@@ -105,21 +138,25 @@
     </div>
 
     <!-- METRICS -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Model Evaluation Metrics</h2>
 
         <div class="text-box">
-            <ul>
-                <li><strong>Accuracy:</strong> {{ (accuracy * 100) | round(2) }}%</li>
-                <li><strong>Precision:</strong> {{ (precision * 100) | round(2) }}%</li>
-                <li><strong>Recall:</strong> {{ (recall * 100) | round(2) }}%</li>
-                <li><strong>F1-score:</strong> {{ (f1 * 100) | round(2) }}%</li>
-            </ul>
-        </div>
+    <ul>
+        <li><strong>Accuracy:</strong> {{ (accuracy * 100) | round(2) }}% → Overall correctness of predictions</li>
+        <li><strong>Precision:</strong> {{ (precision * 100) | round(2) }}% → Reliability of high-risk predictions</li>
+        <li><strong>Recall:</strong> {{ (recall * 100) | round(2) }}% → Ability to detect actual risky drivers</li>
+        <li><strong>F1-score:</strong> {{ (f1 * 100) | round(2) }}% → Balance between precision and recall</li>
+    </ul>
+
+    <p>
+        These metrics provide a comprehensive evaluation of the model's classification performance.
+    </p>
+</div>
     </div>
 
     <!-- ROC -->
-    <div class="card">
+    <div class="card reveal">
         <h2>ROC Curve / AUC</h2>
         <div class="text-box">
             The ROC curve shows the trade-off between true positive rate and false positive rate.
@@ -136,7 +173,7 @@
     </div>
 
     <!-- INTERPRETATION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Interpretation of Results</h2>
         <div class="text-box">  
             <p>
@@ -165,16 +202,20 @@
                 These results demonstrate that Logistic Regression is an effective and interpretable model for binary classification problems 
                 in real-world scenarios.
             </p>
+            <p>
+                In real-world scenarios, prioritizing recall is essential because failing to detect a high-risk driver
+                could result in serious consequences. Therefore, the model is designed to favor sensitivity over strict precision.
+            </p>
         </div>
     </div>
 
     <!-- NAVIGATION -->
     <div class="home-buttons">
-        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Supervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

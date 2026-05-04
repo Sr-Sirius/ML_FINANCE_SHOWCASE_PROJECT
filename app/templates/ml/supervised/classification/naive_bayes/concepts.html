@@ -6,12 +6,12 @@
 
 <div class="container">
 
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Bernoulli Naive Bayes - Basic Concepts</h1>
     </div>
 
     <!-- WHAT IS NAIVE BAYES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>What is Bernoulli Naive Bayes?</h2>
         <div class="text-box">
             <p>Bernoulli Naive Bayes is a supervised machine learning algorithm used for classification tasks, particularly when the input features are binary (0 or 1). It is based on Bayes' Theorem, which calculates the probability of a class given a set of input features.</p>
@@ -25,7 +25,7 @@
     </div>
 
     <!-- HOW IT WORKS -->
-    <div class="card">
+    <div class="card reveal">
         <h2>How it Works</h2>
         <div class="text-box">
             <p>The model applies Bayes' Theorem to calculate the probability of each class given the observed features.</p>
@@ -38,8 +38,30 @@
         </div>
     </div>
 
+<!-- PREDICTION PROCESS -->
+<div class="card reveal">
+    <h2 class="glow-hover">Prediction Process</h2>
+
+    <div class="text-box">
+        <p>
+            The prediction process in Bernoulli Naive Bayes follows these steps:
+        </p>
+
+        <ul>
+            <li>Step 1: Evaluate the probability of each feature given the class</li>
+            <li>Step 2: Multiply probabilities assuming independence</li>
+            <li>Step 3: Multiply by prior probability of the class</li>
+            <li>Step 4: Select the class with the highest probability</li>
+        </ul>
+
+        <p>
+            This allows the model to classify inputs efficiently even with multiple features.
+        </p>
+    </div>
+</div>
+
     <!-- BAYES THEOREM -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Bayes' Theorem</h2>
         <div class="text-box">
             <p>
@@ -60,12 +82,39 @@
         </div>
     </div>
 
+<!-- MODEL FORMULATION -->
+<div class="card reveal">
+    <h2 class="glow-hover">Model Formulation</h2>
+
+    <div class="text-box">
+        <p>
+            In Naive Bayes, the probability of a class given multiple features is calculated as:
+        </p>
+
+        <p>
+            P(C | X₁, X₂, ..., Xn) ∝ P(C) · P(X₁ | C) · P(X₂ | C) · ... · P(Xn | C)
+        </p>
+
+        <p>
+            This formulation assumes that all features are conditionally independent given the class.
+        </p>
+
+        <p>
+            In Bernoulli Naive Bayes, each feature contributes based on whether it is present (1) or absent (0).
+        </p>
+    </div>
+</div>
+
     <!-- MAIN CHARACTERISTICS -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Main Characteristics</h2>
         <div class="text-box">
             <p>Bernoulli Naive Bayes operates on binary-valued features and assumes independence between variables. It is computationally efficient and performs well even with relatively small datasets.</p>
             <p>The model is simple, fast, and easy to interpret, making it a strong baseline for many classification problems.</p>
+            <p>
+                The independence assumption significantly reduces computational complexity,
+                making Naive Bayes especially effective for high-dimensional datasets.
+            </p>
         </div>
 
         <div class="image-box">
@@ -74,7 +123,7 @@
     </div>
 
     <!-- ADVANTAGES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Advantages and Limitations</h2>
         <div class="text-box">
             <p>One of the main advantages of Bernoulli Naive Bayes is its simplicity and speed. It works well with high-dimensional data and requires less computational power compared to more complex models.</p>
@@ -87,7 +136,7 @@
     </div>
 
     <!-- TYPE OF PROBLEMS -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Type of Classification Problems</h2>
         <div class="text-box">
             <p>This model is commonly used in binary classification problems where features represent the presence or absence of conditions.</p>
@@ -100,7 +149,7 @@
     </div>
 
     <!-- REAL WORLD -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Real-World Example</h2>
         <div class="text-box">
             <p>In a driving risk analysis system, Bernoulli Naive Bayes can be used to classify whether a driver is high risk based on binary behaviors such as:</p>
@@ -120,11 +169,11 @@
 
     <!-- BACK BUTTONS -->
     <div class="home-buttons">
-        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Supervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

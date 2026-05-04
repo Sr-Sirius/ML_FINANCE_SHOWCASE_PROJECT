@@ -7,63 +7,117 @@
 <div class="container">
 
     <!-- TITLE -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Linear Regression — Application</h1>
 
         <div class="text-box">
             <p>
                 This application predicts a user's expenses based on financial inputs such as income,
                 previous expenses, and number of transactions. The goal is to provide an estimate that
-                helps users understand their financial behavior.
+                helps users understand their financial behavior and make better budgeting decisions.
+            </p>
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <div class="card reveal">
+        <h2 class="glow-hover">Problem Description</h2>
+
+        <div class="text-box">
+            <p>
+                Managing personal finances can be challenging due to variability in income and spending patterns.
+                This problem focuses on estimating future expenses using historical financial data.
+            </p>
+            <p>
+                By identifying relationships between income, past expenses, and transaction activity,
+                the model provides a data-driven prediction that supports financial planning and decision-making.
             </p>
         </div>
     </div>
 
     <!-- DATASET -->
-    <div class="card">
-        <h2>Dataset Explanation</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Dataset Explanation</h2>
 
         <div class="text-box">
             <p>
-                The dataset contains 50 records of financial data including income, previous expenses,
-                number of transactions, and actual expenses. This data is used to train the regression
-                model and identify patterns between variables.
+                The dataset contains 50 records of structured financial data, including income,
+                previous expenses, number of transactions, and actual expenses.
+            </p>
+            <p>
+                This dataset is used to train the regression model, allowing it to learn patterns
+                and relationships between financial variables.
             </p>
         </div>
     </div>
 
     <!-- VARIABLES -->
-    <div class="card">
-        <h2>Variables Used</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Variables Used</h2>
 
         <div class="text-box">
             <p>
-                Inputs: Income, Previous Expenses, Transactions <br>
-                Output: Expense
+                The model uses the following variables:
             </p>
+            <ul>
+                <li><strong>Income:</strong> monthly earnings of the user</li>
+                <li><strong>Previous Expenses:</strong> historical spending behavior</li>
+                <li><strong>Transactions:</strong> number of financial activities</li>
+            </ul>
+            <p>
+                The output variable is:
+            </p>
+            <ul>
+                <li><strong>Expense:</strong> predicted future spending</li>
+            </ul>
         </div>
     </div>
 
     <!-- DATA PREP -->
-    <div class="card">
-        <h2>Data Preparation</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Data Preparation</h2>
 
         <div class="text-box">
             <p>
-                The dataset was cleaned and structured to ensure consistency. All variables were formatted
-                numerically, allowing the regression model to process and learn from the data effectively.
+                The dataset was cleaned and structured to ensure consistency and accuracy.
+                Missing or inconsistent values were handled, and all variables were converted
+                into numerical format.
+            </p>
+            <p>
+                This preprocessing step is essential for ensuring that the regression model
+                can correctly interpret and learn from the data.
+            </p>
+        </div>
+    </div>
+
+    <!-- NEW: TRAINING -->
+    <div class="card reveal">
+        <h2 class="glow-hover">Model Training Process</h2>
+
+        <div class="text-box">
+            <p>
+                The linear regression model was trained using the dataset to learn the relationship
+                between input variables and the target variable.
+            </p>
+            <p>
+                During training, the model adjusts its coefficients to minimize prediction error,
+                typically using optimization techniques such as least squares.
             </p>
         </div>
     </div>
 
     <!-- GRAPH -->
-    <div class="card">
-        <h2>Regression Graph</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Regression Graph</h2>
 
         <div class="text-box">
             <p>
                 The following graph shows the relationship between income and expenses,
                 along with the regression line learned by the model.
+            </p>
+            <p>
+                The regression line represents the best-fit line that minimizes the distance
+                between predicted and actual values.
             </p>
         </div>
 
@@ -78,9 +132,28 @@
         {% endif %}
     </div>
 
+    <!-- NEW: EVALUATION -->
+    <div class="card reveal">
+        <h2 class="glow-hover">Model Evaluation</h2>
+
+        <div class="text-box">
+            <p>
+                The performance of the regression model can be evaluated using metrics such as:
+            </p>
+            <ul>
+                <li><strong>Mean Squared Error (MSE)</strong></li>
+                <li><strong>Root Mean Squared Error (RMSE)</strong></li>
+                <li><strong>R² Score</strong></li>
+            </ul>
+            <p>
+                These metrics help determine how accurately the model predicts financial behavior.
+            </p>
+        </div>
+    </div>
+
     <!-- FORM -->
-    <div class="card">
-        <h2>Make a Prediction</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Prediction Form</h2>
 
         <form method="POST">
 
@@ -88,39 +161,37 @@
             <input type="number" step="any" name="previous_expenses" placeholder="Previous Expenses" required>
             <input type="number" step="any" name="transactions" placeholder="Transactions" required>
 
-            <br><br>
-
-            <button class="btn" type="submit">Predict</button>
+            <button class="btn glow-hover" type="submit">Predict</button>
         </form>
     </div>
 
     <!-- RESULT -->
     {% if prediction is not none %}
-    <div class="card">
-        <h2>Prediction Result</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Prediction Result</h2>
 
-        <!-- RESULT -->
         <div class="text-box">
             <p><strong>Estimated Expense:</strong> {{ prediction }}</p>
         </div>
 
-        <!-- WARNING -->
         {% if warning %}
         <div class="text-box" style="margin-top:20px; background: rgba(255,0,0,0.3);">
             <p>{{ warning }}</p>
         </div>
         {% endif %}
 
-        <!-- INTERPRETATION -->
         <div class="text-box" style="margin-top:20px;">
             <p>
                 The predicted value represents an estimation of the user's expenses based on learned patterns.
                 A higher income generally leads to higher expenses, while previous expenses strongly influence the result.
-                This demonstrates how past financial behavior affects future predictions.
+            </p>
+
+            <p>
+                This demonstrates how historical financial behavior impacts future predictions
+                and highlights the usefulness of regression models in real-world applications.
             </p>
         </div>
 
-        <!-- FLASK EXPLANATION -->
         <div class="text-box" style="margin-top:20px;">
             <p>
                 This prediction system is implemented using Flask. User inputs are sent through a form,
@@ -133,11 +204,11 @@
 
     <!-- BACK BUTTONS -->
     <div class="home-buttons">
-        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Supervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

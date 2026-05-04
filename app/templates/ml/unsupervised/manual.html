@@ -7,7 +7,7 @@
 <div class="container">
 
     <!-- TITLE -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>K-Means Manual Simulation</h1>
         <p class="subtitle">
             Step-by-step manual implementation of the K-Means clustering algorithm.
@@ -15,8 +15,8 @@
     </div>
 
     <!-- DATASET -->
-    <div class="card">
-        <h2>Dataset Explanation</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Dataset Explanation</h2>
         <div class="text-box">
             <p>
                 The dataset consists of 100 records with two numerical features:
@@ -26,92 +26,122 @@
                 The data is distributed into three natural groups representing
                 low, medium, and high activity levels.
             </p>
-        </div>
-
-        <!-- 📸 SCREENSHOT -->
-        <div class="image-box">
-            <p><b>Figure 1.</b> Initial dataset used for K-Means simulation.</p>
-            <img src="{{ url_for('static', filename='images/manual_dataset.png') }}" 
-                 style="max-width:100%; height:auto;">
-        </div>
-    </div>
-
-    <!-- ITERATIONS -->
-    <div class="card">
-        <h2>Iteration Tables</h2>
-        <div class="text-box">
             <p>
-                Three iterations of the K-Means algorithm were performed manually until convergence was reached.
-                Each iteration included distance calculation, cluster assignment,
-                and centroid updates.
+                This distribution makes the dataset suitable for clustering,
+                as clear group structures can be identified and analyzed.
             </p>
         </div>
 
-        <!-- 📸 -->
         <div class="image-box">
-            <p><b>Figure 2.</b> Iteration 1 - Distance calculation and cluster assignment.</p>
-            <img src="{{ url_for('static', filename='images/iteration1.png') }}" width="400">
+    <img src="{{ url_for('static', filename='images/manual_dataset.png') }}" 
+         class="manual-img">
+
+    <p class="figure-caption">
+        <b>Figure 1.</b> Initial dataset used for K-Means simulation.
+    </p>
+</div>
+    </div>
+
+    <!-- ITERATIONS -->
+    <div class="card reveal">
+        <h2 class="glow-hover">Iteration Tables</h2>
+        <div class="text-box">
+            <p>
+                Three iterations of the K-Means algorithm were performed manually until convergence was reached.
+            </p>
+            <p>
+                Each iteration included three key steps:
+                distance calculation, cluster assignment, and centroid update.
+            </p>
+            <p>
+                This iterative process allows the algorithm to progressively improve cluster quality.
+            </p>
         </div>
 
         <div class="image-box">
-            <p><b>Figure 3.</b> Iteration 2 - Updated clusters and centroids.</p>
-            <img src="{{ url_for('static', filename='images/iteration2.png') }}" width="400">
-        </div>
+    <img src="{{ url_for('static', filename='images/iteration1.png') }}" 
+         class="manual-img">
+
+    <p class="figure-caption">
+        <b>Figure 2.</b> Iteration 1 - Distance calculation and cluster assignment.
+    </p>
+</div>
 
         <div class="image-box">
-            <p><b>Figure 4.</b> Iteration 3 - Final stable clusters.</p>
-            <img src="{{ url_for('static', filename='images/iteration3.png') }}" width="400">
-        </div>
+    <img src="{{ url_for('static', filename='images/iteration2.png') }}" 
+         class="manual-img">
+
+    <p class="figure-caption">
+        <b>Figure 3.</b> Iteration 2 - Updated clusters and centroids.
+    </p>
+</div>
+
+        <div class="image-box">
+    <img src="{{ url_for('static', filename='images/iteration3.png') }}" 
+         class="manual-img">
+
+    <p class="figure-caption">
+        <b>Figure 4.</b> Iteration 3 - Final stable clusters.
+    </p>
+</div>
     </div>
 
     <!-- DISTANCE -->
-    <div class="card">
-        <h2>Distance Calculation</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Distance Calculation</h2>
         <div class="text-box">
             <p>
-                The Euclidean distance formula was used:
+                The Euclidean distance formula was used to measure similarity between data points and centroids:
             </p>
             <p>
                 d = √((xₚ - x𝑐)<sup>2</sup> + (yₚ - y𝑐)<sup>2</sup>)
             </p>
             <p>
-                Distances were calculated between each data point and each centroid.
+                This metric determines how close each point is to each centroid.
+                The smaller the distance, the higher the similarity.
+            </p>
+            <p>
+                This step is essential because it directly influences how clusters are formed.
             </p>
         </div>
     </div>
 
     <!-- CLUSTERS -->
-    <div class="card">
-        <h2>Cluster Assignment</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Cluster Assignment</h2>
         <div class="text-box">
             <p>
-                Each data point was assigned to the nearest centroid using
-                the minimum distance.
+                Each data point was assigned to the nearest centroid based on the minimum distance calculated.
             </p>
             <p>
-                This process was implemented in Excel using comparison formulas.
+                This assignment step defines the structure of clusters and determines which points belong together.
+            </p>
+            <p>
+                The process was implemented manually in Excel using comparison formulas to identify the closest centroid.
             </p>
         </div>
     </div>
 
     <!-- CENTROIDS -->
-    <div class="card">
-        <h2>Centroid Updates</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Centroid Updates</h2>
         <div class="text-box">
             <p>
-                New centroids were calculated as the mean of all points
-                belonging to each cluster.
+                New centroids were calculated as the mean of all data points assigned to each cluster.
             </p>
             <p>
-                After the first iteration, centroids changed significantly,
-                and then gradually stabilized.
+                This step ensures that centroids move toward the center of their respective clusters.
+            </p>
+            <p>
+                After the first iteration, centroids changed significantly, indicating that the initial positions were not optimal.
+                In later iterations, centroid movement decreased, showing stabilization.
             </p>
         </div>
     </div>
 
     <!-- VARIANCE -->
-    <div class="card">
-        <h2>Variance (SSE) Comparison</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Variance (SSE) Comparison</h2>
         <div class="text-box">
             <ul>
                 <li>Iteration 1 → SSE = 660,557</li>
@@ -119,47 +149,55 @@
                 <li>Iteration 3 → SSE = 307,280</li>
             </ul>
             <p>
-                The SSE decreased significantly between iteration 1 and 2,
-                indicating improved clustering quality.
+                SSE (Sum of Squared Errors) measures how compact the clusters are.
+            </p>
+            <p>
+                The significant reduction between iteration 1 and 2 shows that the clustering improved considerably.
+            </p>
+            <p>
+                Since the value did not change between iteration 2 and 3, convergence was achieved.
             </p>
         </div>
 
-        <!-- 📸 -->
         <div class="image-box">
-            <p><b>Figure 5.</b> SSE comparison across iterations.</p>
-            <img src="{{ url_for('static', filename='images/sse_graph.png') }}" width="400">
-        </div>
-    </div>
+    <img src="{{ url_for('static', filename='images/sse_graph.png') }}" 
+         class="manual-img">
+
+    <p class="figure-caption">
+        <b>Figure 5.</b> SSE comparison across iterations.
+    </p>
+</div>
 
     <!-- INTERPRETATION -->
-    <div class="card">
-        <h2>Interpretation of Results</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Interpretation of Results</h2>
         <div class="text-box">
             <p>
                 The K-Means algorithm successfully grouped the dataset into three clusters.
             </p>
             <p>
-                The reduction in SSE demonstrates that the clusters became more compact
-                after each iteration.
+                The reduction in SSE demonstrates that the clusters became more compact and well-defined after each iteration.
             </p>
             <p>
-                The algorithm reached convergence in the third iteration, where no further
-                changes in cluster assignments were observed.
+                The algorithm reached convergence in the third iteration, where no further changes in cluster assignments were observed.
             </p>
             <p>
-                The final clusters represent three levels of activity:
+                The final clusters represent three distinct activity levels:
                 low, medium, and high performance.
+            </p>
+            <p>
+                This confirms that K-Means is effective in identifying hidden patterns in unlabeled data.
             </p>
         </div>
     </div>
 
     <!-- NAVIGATION -->
     <div class="home-buttons">
-        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">
+        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Unsupervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

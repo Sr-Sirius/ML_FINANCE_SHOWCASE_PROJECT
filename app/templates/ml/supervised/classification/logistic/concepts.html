@@ -6,12 +6,12 @@
 
 <div class="container">
 
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Logistic Regression - Basic Concepts</h1>
     </div>
 
     <!-- WHAT IS LOGISTIC REGRESSION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>What is Logistic Regression?</h2>
         <div class="text-box">
             <p>Logistic Regression is a supervised machine learning algorithm used for solving classification problems, particularly when the output variable is categorical. Despite its name, it is not used for regression tasks but for predicting the probability that an input belongs to a specific class.</p>
@@ -25,7 +25,7 @@
     </div>
 
     <!-- REGRESSION VS CLASSIFICATION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Regression vs Classification</h2>
         <div class="text-box">
             <p>In machine learning, it is important to distinguish between regression and classification tasks.</p>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- BINARY CLASSIFICATION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Binary Classification</h2>
         <div class="text-box">
             <p>Binary classification refers to problems where there are only two possible outcomes. These outcomes are typically represented as 0 and 1.</p>
@@ -57,7 +57,7 @@
     </div>
 
     <!-- TARGET VARIABLE -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Target Variable / Class Label</h2>
         <div class="text-box">
             <p>The target variable (also known as the class label) is the output that the model is trying to predict.</p>
@@ -75,7 +75,7 @@
     </div>
 
     <!-- FEATURES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Features / Predictors</h2>
         <div class="text-box">
             <p>Features, also called predictors, are the input variables used by the model to make predictions.</p>
@@ -89,7 +89,7 @@
     </div>
 
     <!-- PROBABILITY -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Probability Estimation</h2>
         <div class="text-box">
             <p>One of the key characteristics of Logistic Regression is that it outputs a probability value between 0 and 1.</p>
@@ -102,33 +102,57 @@
         </div>
     </div>
     
-<!-- SIGMOID -->
-<div class="card">
-    <h2>Sigmoid Function</h2>
+    <!-- SIGMOID -->
+    <div class="card reveal">
+        <h2>Sigmoid Function</h2>
+        <div class="text-box">
+            <p>
+                Logistic Regression uses the sigmoid (logistic) function to transform
+                linear outputs into probabilities between 0 and 1.
+            </p>
+            <p>
+                The sigmoid function is defined as:
+            </p>
+            <p>
+                σ(z) = 1 / (1 + e<sup>-z</sup>)
+            </p>
+            <p>
+                This function ensures that the model output can be interpreted
+                as a probability.
+            </p>
+        </div>
+
+        <div class="image-box">
+            <img src="{{ url_for('static', filename='images/sigmoid.png') }}" width="300">
+        </div>
+    </div>
+    
+<!-- MODEL FORMULATION -->
+<div class="card reveal">
+    <h2 class="glow-hover">Model Formulation</h2>
+
     <div class="text-box">
         <p>
-            Logistic Regression uses the sigmoid (logistic) function to transform
-            linear outputs into probabilities between 0 and 1.
+            Logistic Regression first computes a linear combination of the input variables:
         </p>
-        <p>
-            The sigmoid function is defined as:
-        </p>
-        <p>
-            σ(z) = 1 / (1 + e<sup>-z</sup>)
-        </p>
-        <p>
-            This function ensures that the model output can be interpreted
-            as a probability.
-        </p>
-    </div>
 
-    <div class="image-box">
-        <img src="{{ url_for('static', filename='images/sigmoid.png') }}" width="300">
+        <p>
+            z = w₁x₁ + w₂x₂ + ... + b
+        </p>
+
+        <p>
+            This value is then passed through the sigmoid function to produce a probability.
+        </p>
+
+        <p>
+            This process allows the model to transform linear relationships into
+            probabilistic outputs suitable for classification tasks.
+        </p>
     </div>
 </div>
-    
+
     <!-- DECISION BOUNDARY -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Decision Boundary</h2>
         <div class="text-box">
             <p>The decision boundary is the point or line that separates different classes in the feature space.</p>
@@ -142,7 +166,7 @@
     </div>
 
     <!-- THRESHOLD -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Classification Threshold</h2>
         <div class="text-box">
             <p>The classification threshold is the value used to convert predicted probabilities into class labels.</p>
@@ -159,8 +183,29 @@
         </div>
     </div>
 
+<!-- PREDICTION PROCESS -->
+<div class="card reveal">
+    <h2 class="glow-hover">Prediction Process</h2>
+
+    <div class="text-box">
+        <p>
+            The prediction process in Logistic Regression follows three main steps:
+        </p>
+
+        <ul>
+            <li>Step 1: Compute linear combination of inputs</li>
+            <li>Step 2: Apply sigmoid function to obtain probability</li>
+            <li>Step 3: Apply threshold to assign final class</li>
+        </ul>
+
+        <p>
+            This pipeline transforms raw input data into a meaningful classification outcome.
+        </p>
+    </div>
+</div>
+
     <!-- REAL WORLD -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Real-World Example</h2>
         <div class="text-box">
             <p>Logistic Regression is widely used in real-world applications where binary decisions are required.</p>
@@ -181,13 +226,15 @@
 
     <!-- BACK BUTTON -->
     <div class="home-buttons">
-    <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
-        ⬅ Back to Supervised
-    </a>
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
+            ⬅ Back to Supervised
+        </a>
 
-    <a href="{{ url_for('main.ml_menu') }}" class="btn">
-        ⬅ Back to ML
-    </a>
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
+            ⬅ Back to ML
+        </a>
+    </div>
+
 </div>
 
 {% endblock %}

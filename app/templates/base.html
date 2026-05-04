@@ -9,30 +9,65 @@
     <!-- ICON -->
     <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="{{ theme }}">
 
-<div class="container">
+<!-- NAVBAR -->
+<nav class="navbar">
 
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <h2 class="logo">ML Suite</h2>
+    <div class="nav-container">
 
-            <ul class="nav-links">
-                <li><a href="{{ url_for('main.home') }}">Home</a></li>
-                <li><a href="{{ url_for('use_cases.menu') }}">Use Cases</a></li>
-                <li><a href="{{ url_for('main.ml_menu') }}">Machine Learning</a></li>
-            </ul>
+        <!-- LEFT -->
+        <div class="nav-left">
+            <h2 class="logo glow-hover">ML Suite</h2>
         </div>
-    </nav>
 
+        <!-- CENTER -->
+        <div class="nav-center">
+
+            <a href="{{ url_for('main.home') }}"
+               class="nav-link {% if request.endpoint == 'main.home' %}active{% endif %}">
+               Home
+            </a>
+
+            <a href="{{ url_for('use_cases.menu') }}"
+               class="nav-link {% if 'use_cases' in request.endpoint %}active{% endif %}">
+               Use Cases
+            </a>
+
+            <!-- DROPDOWN ML -->
+            <div class="dropdown">
+
+                <button class="nav-link
+                    {% if 'supervised' in request.endpoint or 'unsupervised' in request.endpoint %}active{% endif %}">
+                    Machine Learning ▾
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="{{ url_for('main.ml_menu') }}">Overview</a>
+                    <a href="{{ url_for('supervised.supervised_menu') }}">Supervised</a>
+                    <a href="{{ url_for('unsupervised.unsupervised_menu') }}">Unsupervised</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container">
     {% block content %}{% endblock %}
-
 </div>
+
+<!-- JS CORE -->
+<script type="module" src="{{ url_for('static', filename='js/core/main.js') }}"></script>
 
 </body>
 </html>

@@ -1,0 +1,57 @@
+.glow-hover {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+/* Default glow */
+.glow-hover::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    background: radial-gradient(
+        circle,
+        var(--glow-color, rgba(255,255,255,0.4)),
+        transparent 70%
+    );
+
+    filter: blur(25px);
+
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+
+    transform: translate(-50%, -50%);
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.glow-hover:hover::before {
+    opacity: 1;
+}
+
+.glow-hover:hover {
+    transform: translateY(-3px) scale(1.01);
+}
+
+/* THEMES */
+
+body.cars {
+    --glow-color: rgba(231, 76, 60, 0.5);
+}
+
+body.finance {
+    --glow-color: rgba(46, 204, 113, 0.5);
+}
+
+body.ml {
+    --glow-color: rgba(52, 152, 219, 0.5);
+}
+
+/* NUEVO: UNSUPERVISED (morado 🔥) */
+body.unsupervised {
+    --glow-color: rgba(155, 89, 182, 0.6);
+}

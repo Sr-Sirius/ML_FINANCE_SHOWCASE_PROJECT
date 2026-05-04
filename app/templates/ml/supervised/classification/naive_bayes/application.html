@@ -6,12 +6,12 @@
 
 <div class="container">
 
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>Bernoulli Naive Bayes - Application</h1>
     </div>
 
     <!-- PROBLEM -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
             This application classifies the risk level of a driver based on observable driving behaviors. 
@@ -25,7 +25,7 @@
     </div>
 
     <!-- DATASET -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Dataset Explanation</h2>
         <div class="text-box">
             The dataset consists of binary variables representing driver behaviors. 
@@ -35,7 +35,7 @@
     </div>
 
     <!-- VARIABLES -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Input Variables and Target Variable</h2>
         <div class="text-box">
             <ul>
@@ -45,8 +45,31 @@
         </div>
     </div>
 
+<!-- DATA PREPARATION -->
+<div class="card reveal">
+    <h2 class="glow-hover">Data Preparation</h2>
+
+    <div class="text-box">
+        <p>
+            The dataset is already structured in binary format, meaning each feature
+            takes values of 0 or 1. This makes it directly compatible with the Bernoulli
+            Naive Bayes model.
+        </p>
+
+        <p>
+            No normalization is required, since all variables share the same scale.
+            The dataset is split into training and testing sets to evaluate model performance.
+        </p>
+
+        <p>
+            This preprocessing step ensures that the model can learn meaningful patterns
+            from consistent and well-structured input data.
+        </p>
+    </div>
+</div>
+
     <!-- TRAINING -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Model Training Process</h2>
         <div class="text-box">
             The Bernoulli Naive Bayes model calculates the probability of each class given the observed features, 
@@ -54,8 +77,31 @@
         </div>
     </div>
 
+<!-- MODEL FLOW -->
+<div class="card reveal">
+    <h2 class="glow-hover">Prediction Flow</h2>
+
+    <div class="text-box">
+        <p>
+            The Bernoulli Naive Bayes model follows a probabilistic pipeline:
+        </p>
+
+        <ul>
+            <li>Step 1: Evaluate each feature as present (1) or absent (0)</li>
+            <li>Step 2: Compute probability of each feature given the class</li>
+            <li>Step 3: Multiply probabilities assuming independence</li>
+            <li>Step 4: Select class with highest posterior probability</li>
+        </ul>
+
+        <p>
+            This process allows the model to efficiently classify driver risk
+            based on simple binary inputs.
+        </p>
+    </div>
+</div>
+
     <!-- FORM -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h2>Prediction Form</h2>
 
         <form method="POST">
@@ -64,7 +110,7 @@
             <input type="number" name="phone" min="0" max="1" placeholder="Phone Usage (0 or 1)" required>
             <input type="number" name="braking" min="0" max="1" placeholder="Aggressive Braking (0 or 1)" required>
 
-            <button type="submit" class="btn">Predict</button>
+            <button type="submit" class="btn glow-hover">Predict</button>
         </form>
 
         {% if prediction is not none %}
@@ -79,7 +125,7 @@
     </div>
 
     <!-- CONFUSION MATRIX -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Confusion Matrix</h2>
         <div class="text-box">
             The confusion matrix shows how well the model classifies driver behavior into correct and incorrect predictions.
@@ -91,21 +137,26 @@
     </div>
 
     <!-- METRICS -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Model Evaluation Metrics</h2>
 
         <div class="text-box">
             <ul>
-                <li><strong>Accuracy:</strong> {{ (accuracy * 100) | round(2) }}%</li>
-                <li><strong>Precision:</strong> {{ (precision * 100) | round(2) }}%</li>
-                <li><strong>Recall:</strong> {{ (recall * 100) | round(2) }}%</li>
-                <li><strong>F1-score:</strong> {{ (f1 * 100) | round(2) }}%</li>
+                <li><strong>Accuracy:</strong> {{ (accuracy * 100) | round(2) }}% → Overall correctness of predictions</li>
+                <li><strong>Precision:</strong> {{ (precision * 100) | round(2) }}% → Reliability of high-risk predictions</li>
+                <li><strong>Recall:</strong> {{ (recall * 100) | round(2) }}% → Ability to detect risky drivers</li>
+                <li><strong>F1-score:</strong> {{ (f1 * 100) | round(2) }}% → Balance between precision and recall</li>
             </ul>
+
+            <p>
+                These metrics provide a complete evaluation of the classification performance,
+                especially important in risk detection scenarios.
+            </p>
         </div>
     </div>
 
     <!-- ROC -->
-    <div class="card">
+    <div class="card reveal">
         <h2>ROC Curve / AUC</h2>
         <div class="text-box">
             The ROC curve illustrates the model’s ability to distinguish between high-risk and low-risk drivers.
@@ -117,7 +168,7 @@
     </div>
 
     <!-- INTERPRETATION -->
-    <div class="card">
+    <div class="card reveal">
         <h2>Interpretation of Results</h2>
         <div class="text-box">  
             <p>The Bernoulli Naive Bayes model demonstrates solid performance in classifying driver risk based on binary behavior indicators.</p>
@@ -127,16 +178,22 @@
             <p>Some classification errors are expected due to the independence assumption, but overall the model remains reliable and interpretable.</p>
 
             <p>The ROC curve confirms that the model maintains a good balance between sensitivity and specificity.</p>
+
+            <p>
+                In safety-related applications, recall is particularly important because failing
+                to detect a high-risk driver could lead to serious consequences. Therefore, the model
+                prioritizes identifying risky cases even if some false positives occur.
+            </p>
         </div>
     </div>
 
     <!-- BACK BUTTONS -->
     <div class="home-buttons">
-        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn">
+        <a href="{{ url_for('supervised.supervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Supervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

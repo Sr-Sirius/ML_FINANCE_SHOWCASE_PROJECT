@@ -7,7 +7,7 @@
 <div class="container">
 
     <!-- TITLE -->
-    <div class="card">
+    <div class="card reveal glow-hover">
         <h1>K-Means — Unsupervised Learning Concepts</h1>
         <p class="subtitle">
             Understanding how machines find patterns without labeled data.
@@ -15,120 +15,189 @@
     </div>
 
     <!-- WHAT IS UNSUPERVISED -->
-    <div class="card">
-        <h2>What is Unsupervised Learning?</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">What is Unsupervised Learning?</h2>
         <div class="text-box">
             <p>
-                Unsupervised learning is a type of machine learning where the model
-                works with data that has no labeled outputs. The goal is to identify
-                patterns, structures, or relationships within the data.
+                Unsupervised learning is a type of machine learning where the model works with data that has no labeled outputs. 
+                Unlike supervised learning, there is no predefined target variable, and the system must discover patterns 
+                directly from the input data.
             </p>
+            <p>
+                The main objective is to identify hidden structures, relationships, or groupings within the dataset. 
+                This approach is widely used for exploratory data analysis and pattern discovery.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/unsupervised_learning.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- CLUSTERING -->
-    <div class="card">
-        <h2>Clustering</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Clustering</h2>
         <div class="text-box">
             <p>
-                Clustering is the process of grouping similar data points together.
-                Each group is called a cluster.
+                Clustering is a fundamental technique in unsupervised learning that groups similar data points together 
+                based on their characteristics.
             </p>
+            <p>
+                Each group, known as a cluster, contains data points that are more similar to each other than to those 
+                in other clusters. The goal is to maximize similarity within clusters and minimize similarity between clusters.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/clustering.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- K-MEANS -->
-    <div class="card">
-        <h2>K-Means Algorithm</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">K-Means Algorithm</h2>
         <div class="text-box">
+            <p>
+                K-Means is one of the most popular clustering algorithms. It partitions data into <b>K predefined clusters</b> 
+                by minimizing the distance between data points and their corresponding cluster centroids.
+            </p>
             <ul>
-                <li>Select K initial centroids</li>
-                <li>Assign each point to the nearest centroid</li>
-                <li>Recalculate centroids (average)</li>
-                <li>Repeat until convergence</li>
+                <li>Select K initial centroids randomly</li>
+                <li>Assign each data point to the nearest centroid</li>
+                <li>Recalculate centroids as the mean of assigned points</li>
+                <li>Repeat until cluster assignments no longer change</li>
             </ul>
+            <p>
+                The algorithm is simple, efficient, and widely used in real-world applications.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/kmeans.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- CENTROIDS -->
-    <div class="card">
-        <h2>Centroids</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Centroids</h2>
         <div class="text-box">
             <p>
-                A centroid represents the center of a cluster and is calculated
-                as the average of all points belonging to that cluster.
+                A centroid represents the center of a cluster and is calculated as the average position 
+                of all data points within that cluster.
             </p>
+            <p>
+                Centroids play a critical role in K-Means, as they determine how data points are grouped 
+                and updated during each iteration of the algorithm.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/centroids.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- DISTANCE -->
-    <div class="card">
-        <h2>Euclidean Distance</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Euclidean Distance</h2>
         <div class="text-box">
             <p>
-                The distance between two points is calculated using:
+                K-Means uses distance metrics to determine similarity between data points and centroids. 
+                The most common metric is Euclidean distance:
             </p>
             <p>
                 d = √((x₁ - x₂)<sup>2</sup> + (y₁ - y₂)<sup>2</sup>)
             </p>
+            <p>
+                This distance measures how far two points are in space. The algorithm assigns each data point 
+                to the nearest centroid based on this calculation.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/euclidean.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- ITERATIVE PROCESS -->
-    <div class="card">
-        <h2>Iterative Process</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Iterative Process</h2>
         <div class="text-box">
             <p>
-                K-Means works iteratively. Each iteration improves cluster
-                assignments until the centroids no longer change.
+                K-Means is an iterative algorithm. In each iteration, data points are reassigned to clusters, 
+                and centroids are recalculated.
             </p>
+            <p>
+                This repeated process gradually improves clustering quality by reducing the distance between 
+                points and their assigned centroids.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/iteration.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- CONVERGENCE -->
-    <div class="card">
-        <h2>Convergence</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Convergence</h2>
         <div class="text-box">
             <p>
-                Convergence occurs when cluster assignments no longer change
-                or when the centroids stabilize between iterations. At this
-                point, the algorithm stops.
+                Convergence occurs when cluster assignments stabilize and no longer change between iterations.
             </p>
+            <p>
+                At this stage, the centroids remain fixed, and the algorithm stops. This indicates that the model 
+                has found an optimal or near-optimal clustering solution.
+            </p>
+        </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/convergence.png') }}" 
+                class="concept-img">
         </div>
     </div>
 
     <!-- VARIANCE -->
-    <div class="card">
-        <h2>Variance (SSE)</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Variance (SSE)</h2>
         <div class="text-box">
             <p>
-                SSE (Sum of Squared Errors) measures how close points are
-                to their centroid. Lower values indicate better clustering.
+                The Sum of Squared Errors (SSE) measures how close data points are to their cluster centroid.
+            </p>
+            <p>
+                A lower SSE indicates more compact and well-defined clusters. The K-Means algorithm aims 
+                to minimize this value during training.
             </p>
         </div>
+        <div class="image-box">
+                <img src="{{ url_for('static', filename='images/variance.png') }}" 
+                class="concept-img">
+         </div>
     </div>
 
     <!-- APPLICATIONS -->
-    <div class="card">
-        <h2>Real-World Applications</h2>
+    <div class="card reveal">
+        <h2 class="glow-hover">Real-World Applications</h2>
         <div class="text-box">
             <ul>
-                <li>Customer segmentation</li>
-                <li>Market analysis</li>
+                <li>Customer segmentation in marketing</li>
+                <li>Market trend analysis</li>
                 <li>Fraud detection</li>
                 <li>Image compression</li>
                 <li>Anomaly detection</li>
             </ul>
+            <p>
+                These applications demonstrate how clustering helps uncover hidden patterns in large datasets 
+                without requiring labeled information.
+            </p>
         </div>
     </div>
 
     <!-- NAVIGATION -->
     <div class="home-buttons">
-        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn">
+        <a href="{{ url_for('unsupervised.unsupervised_menu') }}" class="btn glow-hover">
             ⬅ Back to Unsupervised
         </a>
 
-        <a href="{{ url_for('main.ml_menu') }}" class="btn">
+        <a href="{{ url_for('main.ml_menu') }}" class="btn glow-hover">
             ⬅ Back to ML
         </a>
     </div>

@@ -6,14 +6,27 @@
 
 <div class="container">
 
-    <div class="card">
+    <!-- TITLE -->
+    <div class="card reveal glow-hover">
         <h1>Personal Finance Prediction</h1>
     </div>
 
-    <div class="card">
+    <!-- PROBLEM -->
+    <div class="card reveal">
         <h2>Problem Description</h2>
         <div class="text-box">
-            Personal financial management is a critical aspect of everyday life, yet many individuals struggle to predict their future expenses accurately. Unexpected spending patterns and poor budgeting decisions can lead to financial instability. This use case focuses on predicting future expenses based on historical financial data, helping users make informed budgeting decisions.
+            <p>
+                Personal financial management is a critical aspect of everyday life, yet many individuals struggle 
+                to predict their future expenses accurately.
+            </p>
+            <p>
+                Unexpected spending patterns, lack of financial planning, and poor budgeting decisions can lead 
+                to financial instability and reduced savings capacity.
+            </p>
+            <p>
+                This use case focuses on predicting future expenses based on historical financial data, allowing users 
+                to anticipate their spending behavior and make more informed financial decisions.
+            </p>
         </div>
 
         <div class="image-box">
@@ -21,10 +34,21 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- TYPE -->
+    <div class="card reveal">
         <h2>Type of Machine Learning</h2>
         <div class="text-box">
-            This problem is addressed using supervised learning, specifically a regression model. Regression is suitable because the goal is to predict a continuous numerical value (future expenses) based on input variables.
+            <p>
+                This problem is addressed using <b>supervised learning</b>, specifically a <b>regression model</b>.
+            </p>
+            <p>
+                Regression is appropriate because the objective is to predict a continuous numerical value 
+                (future expenses) based on multiple input variables.
+            </p>
+            <p>
+                The model learns relationships between past financial behavior and future spending patterns,
+                enabling it to generalize predictions for new data.
+            </p>
         </div>
 
         <div class="image-box">
@@ -32,18 +56,22 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- INPUT -->
+    <div class="card reveal">
         <h2>Input Data</h2>
         <div class="text-box">
-              <p> The model uses structured financial data such as:</p>
+            <p>The model uses structured financial data such as:</p>
 
             <ul>
-                <li><strong>Monthly income</strong></li>
-                <li><strong>Previous expenses</strong></li>
-                <li><strong>Number of financial transactions</strong></li>
+                <li><strong>Monthly income</strong> → reflects earning capacity</li>
+                <li><strong>Previous expenses</strong> → captures spending habits</li>
+                <li><strong>Number of financial transactions</strong> → indicates activity level</li>
             </ul>
-            
-                 <p>These variables provide insight into the user’s financial behavior and spending patterns.</p>
+
+            <p>
+                These variables provide a comprehensive view of the user’s financial behavior,
+                allowing the model to detect patterns and correlations between income and spending.
+            </p>
         </div>
 
         <div class="image-box">
@@ -51,10 +79,21 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- OUTPUT -->
+    <div class="card reveal">
         <h2>Expected Output</h2>
         <div class="text-box">
-            The system generates a predicted expense value, representing an estimate of future spending. This output helps users anticipate financial needs and adjust their budgets accordingly.
+            <p>
+                The system generates a predicted expense value, representing an estimate of future spending.
+            </p>
+            <p>
+                This output is a continuous numerical value that reflects the expected financial behavior 
+                based on learned patterns.
+            </p>
+            <p>
+                The prediction helps users anticipate financial needs, identify potential overspending, 
+                and adjust their budgets proactively.
+            </p>
         </div>
 
         <div class="image-box">
@@ -62,10 +101,22 @@
         </div>
     </div>
 
-    <div class="card">
+    <!-- REAL WORLD -->
+    <div class="card reveal">
         <h2>Real-World Relevance</h2>
         <div class="text-box">
-            Financial applications such as budgeting tools and banking systems use similar predictive models to provide personalized financial advice. This enables users to optimize savings, reduce unnecessary expenses, and improve overall financial planning.
+            <p>
+                Financial applications such as digital banking platforms, budgeting tools, and personal finance apps 
+                use similar predictive models to provide personalized insights.
+            </p>
+            <p>
+                These systems help users optimize savings, reduce unnecessary expenses, and improve long-term 
+                financial planning.
+            </p>
+            <p>
+                Additionally, such models can support decision-making in financial institutions, enabling 
+                better risk assessment and customer behavior analysis.
+            </p>
         </div>
 
         <div class="image-box">
@@ -73,8 +124,9 @@
         </div>
     </div>
 
+    <!-- BACK -->
     <div class="home-buttons">
-        <a href="{{ url_for('use_cases.menu') }}" class="btn">
+        <a href="{{ url_for('use_cases.menu') }}" class="btn glow-hover">
             ⬅ Back to Use Cases
         </a>
     </div>

@@ -1,0 +1,37 @@
+.text-box {
+    background: rgba(0,0,0,0.45);
+    padding: 12px 16px;
+    border-radius: 10px;
+
+    display: inline-block;
+
+    color: #eaffea;
+
+    transition: all 0.3s ease;
+}
+
+.text-box:hover {
+    background: rgba(0,0,0,0.6);
+}
+
+.text-box ul {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.text-box li {
+    margin-bottom: 5px;
+}
+
+.text-box.center {
+    text-align: center;
+}
+
+.text-box.center ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text-box.center li {
+    margin-bottom: 8px;
+}

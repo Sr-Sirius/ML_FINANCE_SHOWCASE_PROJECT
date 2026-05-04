@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from app.models.unsupervised.kmeans_model import clustering_pipeline
+from flask import request
 
 unsupervised_bp = Blueprint(
     "unsupervised",
@@ -25,7 +26,7 @@ def unsupervised_menu():
 def unsupervised_concepts():
     return render_template(
         "ml/unsupervised/concepts.html",
-        theme="ml"
+        theme="unsupervised"
     )
 
 # =========================
@@ -35,22 +36,30 @@ def unsupervised_concepts():
 def unsupervised_manual():
     return render_template(
         "ml/unsupervised/manual.html",
-        theme="ml"
+        theme="unsupervised"
     )
 
 # =========================
 # CLUSTERING APPLICATION
 # =========================
-@unsupervised_bp.route("/application")
+from flask import request
+
+@unsupervised_bp.route("/application", methods=["GET", "POST"])
 def unsupervised_application():
 
     try:
-        result = clustering_pipeline()
+        if request.method == "POST":
+            k = int(request.form.get("k", 3))
+        else:
+            k = 3
+
+        result = clustering_pipeline(k)
 
         return render_template(
             "ml/unsupervised/application.html",
             **result,
-            theme="ml"
+            k_selected=k,
+            theme="unsupervised"
         )
 
     except Exception as e:
@@ -60,6 +69,9 @@ def unsupervised_application():
             centers=[],
             summary={},
             plot=None,
+            sse=None,
+            elbow_plot=None,
+            k_selected=3,
             error=str(e),
-            theme="ml"
+            theme="unsupervised"
         )
